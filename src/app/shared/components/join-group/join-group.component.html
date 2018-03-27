@@ -1,0 +1,33 @@
+<div class="row join-lead">
+  <div class="form-group join-group">
+    <div [formGroup]="ethGroup" class="input-group">
+      <input
+        formControlName="ethAddress"
+        class="form-control join-input"
+        placeholder="Enter ETH parent address"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2">
+
+      <div class="input-group-append">
+        <button
+          class="btn join-btn"
+          [class.valid]="ethGroup.valid"
+          type="button"
+          (click)="submit()">
+          Join
+        </button>
+      </div>
+    </div>
+    <div class="form-errors" *ngIf="ethGroup.invalid && submitted">
+      <div *ngIf="ethAddress.errors.required">
+        Please insert ETH parent address
+      </div>
+      <div *ngIf="ethAddress.errors.invalid">
+        Please enter valid ETH address
+      </div>
+      <div *ngIf="ethAddress.errors.notInMatrix">
+        Address doesn't exists in matrix
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<article class="container spots-container content" *ngIf="spots">
+  <div class="spots-title">
+    Your spots
+  </div>
+  <div class="spots-header">
+    <div class="spots-info">
+      <span class="total">
+        {{ totalSpots }}
+      </span>
+      <span class="free">
+        {{ freeSpots }}
+      </span>
+    </div>
+    <button class="spots-btn spots-buy-new" (click)="buyNewSpots()">
+      Buy new spots
+    </button>
+    <!--<div class="spots-pagination">
+      <span class="range"><1-30</span>
+      <span class="range current-range">31-60</span>
+      <span class="range">61-90></span>
+    </div>-->
+  </div>
+
+  <div class="spots-list">
+    <div class="spot" *ngFor="let spot of spotsToDisplay; let i = index">
+      <div class="spot-id">
+        #{{ i + 1 }}
+      </div>
+      <div class="spot-blocks-wrapper">
+        <div
+          class="spot-block"
+          *ngFor="let n of 3 | times"
+          [class.active]="n <= spot.comission_tier_id"
+        ></div>
+      </div>
+      <div class="spot-percent">
+        {{ getComissionPercent(spot.comission_tier_id) }}
+      </div>
+    </div>
+  </div>
+  <button
+    class="spots-btn spots-load-more"
+    (click)="loadMoreSpots()"
+    *ngIf="spotsToDisplay.length && spotsToDisplay.length < spots.spots.length"
+  >
+    Load more
+  </button>
+</article>
+<article class="container spots-container content" *ngIf="!spots">
+  <div class="container-fluid justify-content-center">
+    <div class="row loading-wrapper">
+      <app-loader></app-loader>
+    </div>
+  </div>
+</article>

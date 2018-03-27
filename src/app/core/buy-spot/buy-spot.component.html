@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <form class="form-horizontal" [formGroup]="buyForm" (ngSubmit)="onSubmit()"
+          *ngIf="isMetamaskConnected && isMetamaskUnlocked">
+      <fieldset>
+        <legend>Buy spot</legend>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="inputParent">Parent</label>
+        <input type="text"
+               id="inputParent"
+               placeholder="Parent address" formControlName="parent">
+      </div>
+      <div *ngIf="buyForm.controls.parent.invalid && buyForm.controls.parent.touched">
+        Invalid address
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default" [disabled]="!buyForm.valid">Buy spot</button>
+      </div>
+    </form>
+    <div *ngIf="!isMetamaskConnected">
+      <h3>You don't have metamask</h3>
+    </div>
+    <div *ngIf="isMetamaskConnected && !isMetamaskUnlocked">
+      <h3>Your metamask is not connected, please log in</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div [hidden]="!transactionUrl">
+      <p class="font-small-3" >Transaction Url</p>
+      <a href="{{transactionUrl}}" class="font-small-2" target="_blank">{{transactionUrl}}</a>
+    </div>
+  </div>
+</div>

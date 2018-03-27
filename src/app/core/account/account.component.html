@@ -1,0 +1,180 @@
+<nav class="container-fluid account-nav">
+  <div class="row justify-content-between">
+    <div class="nav-img">
+      <img [src]="logoPath">
+    </div>
+
+    <ul class="account-ul">
+      <li>
+        <a routerLink='/'>Home</a>
+      </li>
+      <li>
+        <a routerLink="/account" routerLinkActive="active">Account</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/" target="_blank">News</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/help/" target="_blank">Help</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--<app-navigation></app-navigation>-->
+<main>
+  <section class="account-stats" *ngIf="accountStats.tokens_amount > 0 && spots">
+    <div class="container-fluid">
+      <div class="account-date">
+        <div class="row">
+          <p class="account-content">Wednesday, March 7, 2018</p>
+        </div>
+      </div>
+
+      <div class="row rewards-wrapper">
+        <div class="col-md-6 col-12 stats-graph d-flex flex-column">
+          <div class="chart-wrapper">
+            <p class="stats-title">Your rewards past week</p>
+            <ngx-charts-bar-vertical
+              class="chart"
+              [scheme]="colorScheme"
+              [results]="graph"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [tooltipDisabled]="tooltipDisabled"
+              [barPadding]="barPadding"
+              [xAxisTickFormatting]="formatXAxis"
+            ></ngx-charts-bar-vertical>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 stats-data">
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Today rewards</p>
+            <p class="stats-value">{{ todayRewards }}</p>
+          </div>
+
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Total rewards</p>
+            <p class="stats-value">{{ totalRewards }}</p>
+          </div>
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Your spots</p>
+            <p class="stats-value">{{ referralSpots }}</p>
+          </div>
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Your downline</p>
+            <p class="stats-value">{{ downline }}</p>
+          </div>
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Your tokens</p>
+            <p class="stats-value">{{ token }}</p>
+            <p class="stats-value">{{tokenPrice}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="account-stats" *ngIf="accountStats.tokens_amount === 0 || !spots">
+    <article class="container spots-container content">
+      <div class="container-fluid justify-content-center">
+        <div class="row loading-wrapper">
+          <app-loader></app-loader>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="spots-management">
+
+    <article class="container copy-container">
+      <div class="row join-lead justify-content-center">
+        <h4 class="join-lead_title">Copy your referral address and start inviting</h4>
+        <div class="input-group join-group">
+          <input
+            class="form-control join-input"
+            placeholder="Your ETH address"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            [value]="ethAddress"
+            readonly
+          >
+          <div class="input-group-append">
+            <button
+              class="btn join-btn"
+              type="button"
+              ngxClipboard
+              [cbContent]="ethAddress"
+              (cbOnSuccess)="onCopy()"
+              (cbOnError)="onCopy(false)"
+            >
+              {{ copyText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="telegram-block container">
+      <div class="row align-items-center flex-column">
+        <h4 class="join-lead_title">Get free notifications of all your transactions</h4>
+        <a href="https://telegram.me/superone_bot" target="_blank">
+          <button class="telegram-button">
+            <img [src]="telegramPath" alt="">
+            superone_bot
+          </button>
+        </a>
+      </div>
+    </article>
+
+    <app-spots [spots]="spots" [hide]="hideOverlay" (hideChange)="handleHidechange($event)" [ethAddress]="ethAddress"></app-spots>
+
+    <article class="dont-container">
+    </article>
+
+  </section>
+</main>
+<footer class="home-footer">
+  <div class="container d-flex flex-column">
+    <div class="row footer-data">
+      <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
+
+      <div class="links">
+        <ul class="footer-list">
+          <li>
+            <a routerLink='/' routerLinkActive="active">Home</a>
+          </li>
+          <li>
+            <a routerLink="/account" routerLinkActive="active">Account</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/" target="_blank">News</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/help/" target="_blank">Help</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li class="secondary">
+            <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
+          </li>
+          <li class="secondary">
+            <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <p class="copyright">© Super.One 2018</p>
+    </div>
+  </div>
+</footer>
+
+<app-overlay [hide]="hideOverlay"></app-overlay>

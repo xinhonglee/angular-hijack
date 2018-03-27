@@ -1,0 +1,214 @@
+<nav class="container-fluid account-nav">
+  <div class="row justify-content-between">
+    <div class="nav-img">
+      <img [src]="logoPath">
+    </div>
+
+    <ul class="account-ul">
+      <li>
+        <a routerLink='/'>Home</a>
+      </li>
+      <li>
+        <a routerLink="/account" routerLinkActive="active">Account</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/">News</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/help/">Help</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main>
+
+  <div class="join-wrapper">
+    <div class="container pl-0 pr-0">
+
+      <section class="join-step-list">
+        <h2 class="home-features_title">Join in 3 simple steps</h2>
+        <div class="row steps-images">
+          <div class="card col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 image-card">
+            <img [src]="wallet" alt="Feature 1" class="join-img">
+            <div class="card-body">
+              <p class="feature_title text-center">Step 1</p>
+              <h2 class="join-step-title text-center">Prepare wallet</h2>
+            </div>
+          </div>
+          <div class="card col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 image-card">
+            <img [src]="paySpot" alt="Feature 1" class="join-img">
+            <div class="card-body">
+              <p class="feature_title text-center">Step 2</p>
+              <h2 class="join-step-title text-center">Pay your spot</h2>
+            </div>
+          </div>
+          <div class="card col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 image-card">
+            <img [src]="friends" alt="Feature 1" class="join-img">
+            <div class="card-body">
+              <p class="feature_title text-center">Step 3</p>
+              <h2 class="join-step-title text-center">Refer friends</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="join-step">
+        <div class="join-step-content">
+
+          <div class="main-join-content">
+            <div>
+              <p class="home-features_lead">Step 1</p>
+            </div>
+            <div>
+              <h2 class="step-title">Get your wallet ready</h2>
+            </div>
+
+            <div>
+              <p class="content">You need a compatible Ether wallet ready with at least ETH 0.1 + transaction fees available.</p>
+              <p class="content">We recommend at least ETH 0.0002 for a fast transfer transaction fee (10 GWEI). That means your
+                Metamask wallet should have at least ETH 1.0002 available</p>
+            </div>
+
+            <div class="method-selection">
+              <button class="select-button " (click)="onTextToggle(false)"
+                      [ngClass]="{'selected-button': isMobileSelected, 'unselected-button': !isMobileSelected}">Desktop Wallet</button>
+            </div>
+
+
+            <div class="short-steps">
+              <p class="content">
+                Install <b>Metamask</b> for Google Chrome
+              </p>
+              <p class="content">
+                Buy <b>ETH</b> via an exchange like Coinbase
+              </p>
+              <p class="content">
+                <b>Transfer</b> funds to your Metamask account
+              </p>
+
+              <a href="https://news.super.one/help/" class="content pink" target="_blank">
+                See help for more information
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section class="join-step">
+        <div class="join-step-content">
+
+          <div class="main-join-content">
+            <div>
+              <p class="home-features_lead">Step 2</p>
+            </div>
+            <div>
+              <h2 class="step-title">Pay your spot</h2>
+            </div>
+
+            <div class="short-steps">
+              <p class="content">
+                Go to <b>super.one</b> in your wallet browser
+              </p>
+              <p class="content">
+                Insert the <b>referral address</b>
+              </p>
+              <p class="content">
+                Pay <b>ETH 0.1</b> to SuperOne
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="join-step">
+        <div class="join-step-content">
+
+          <div class="main-join-content">
+            <div>
+              <p class="home-features_lead">Step 3</p>
+            </div>
+            <div>
+              <h2 class="step-title">Refer friends</h2>
+            </div>
+
+            <div class="short-steps">
+              <p class="content">
+                Await transaction <b>confirmation</b>
+              </p>
+              <p class="content">
+                Go to your <b>account</b>
+              </p>
+              <p class="content">
+                <b>Refer</b> others with your address
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="join-step optional-step">
+        <div class="join-step-content">
+
+          <div class="main-join-content">
+            <div>
+              <p class="home-features_lead">Optional</p>
+            </div>
+            <div>
+              <h2 class="step-title">Start free notifications</h2>
+            </div>
+
+            <div class="short-steps">
+              <p class="content">
+                Install <b>Telegram</b> Messenger
+              </p>
+              <p class="content">
+                Search for <b>SuperOne_bot</b>
+              </p>
+              <p class="content">
+                Copy and paste your <b>ETH address</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<footer class="home-footer">
+  <div class="container d-flex flex-column">
+    <div class="row footer-data">
+      <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
+
+      <div class="links">
+        <ul class="footer-list">
+          <li>
+            <a routerLink='/' routerLinkActive="active">Home</a>
+          </li>
+          <li>
+            <a routerLink="{{switchUrl}}">{{switchText}}</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/" target="_blank">News</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/help/" target="_blank">Help</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li class="secondary">
+            <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
+          </li>
+          <li class="secondary">
+            <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <p class="copyright">© Super.One 2018</p>
+    </div>
+  </div>
+</footer>

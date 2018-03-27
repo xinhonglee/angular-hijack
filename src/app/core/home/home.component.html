@@ -1,0 +1,476 @@
+<nav>
+  <div class="container-fluid nav-wrapper">
+    <ul class="nav-ul">
+      <li>
+        <a routerLink='/' routerLinkActive="active">Home</a>
+      </li>
+      <li>
+        <a routerLink="{{switchUrl}}">{{switchText}}</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/" target="_blank">News</a>
+      </li>
+      <li>
+        <a routerLink="/" href="https://news.super.one/help/" target="_blank">Help</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main>
+  <!--LOGO-->
+  <section class="home-header">
+    <div class="container">
+      <div class="row logo">
+        <img [src]="logoPath" class="img-logo" alt="SuperOne logo">
+      </div>
+      <div class="row">
+        <p class="content content-margin">
+          The world’s first decentralized platform unifying crypto gaming <br>
+          and crowd referral marketing via blockchain innovation.
+        </p>
+        <p class="content pink content-margin">
+          Enjoy uniquely challenging games and real-time, trustless, <br>
+          anonymous rewards right to your wallet.
+        </p>
+      </div>
+      <div class="row">
+        <h4 class="join-lead_title title_white"><b>Join now!</b>  Simply paste your referral’s ETH invite address:</h4>
+      </div>
+      <app-join-group [hide]="hideOverlay" [whiteTitle]="true" (hideChange)="handleHidechange($event)"></app-join-group>
+
+    </div>
+
+    <div class="container home-participation">
+      <div class="row">
+        <h2 class="home-participation_title">How do you join?</h2>
+        <p class="content">
+          You’ll need an Ether referral address from someone who’s already joined.
+          Just enter it at the Join section below.
+        </p>
+        <p class="content">
+          Then use MetaMask to pay ETH 0.1 (plus transaction fees) for your own referral spot.
+          Now you’re ready to participate - start sharing your Ether referral address and earning rewards!
+          Innovative, simple, delightful
+        </p>
+      </div>
+
+      <div class="row get-free-wrapper">
+        <p class="content pink get-free">
+          <b>GET FREE</b> notifications on all your transactions from our Telegram bot
+        </p>
+        <a href="https://telegram.me/superone_bot" target="_blank" class="telegram-link">
+          <button class="telegram-button">
+            <img [src]="telegramPath" alt="" class="telegram-img">
+            superone_bot
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <img [src]="trianglesPath" class="triangle-hero">
+  </section>
+
+
+  <!--&lt;!&ndash;PARTICIPATION&ndash;&gt;-->
+  <!--<section class="home-participation">-->
+  <!--</section>-->
+
+  <section class="home-showcase">
+    <article class="home_features">
+      <div class="container">
+        <h2 class="home-features_title main-title">What is it?</h2>
+
+        <div class="row align-items-start flex-row quote">
+          <div class="quote-border">
+          </div>
+          <p class="home-quote">
+            We’re uniting the largest-ever decentralized crowd then launching our revolutionary games to start creating massive stakeholder returns.
+          </p>
+        </div>
+
+        <div class="row phases">
+          <img [src]="boostPhases" class="phases-image">
+          <img [src]="mBoostPhases" class="phases-image mob">
+        </div>
+      </div>
+    </article>
+
+    <!--PHASE 1-->
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Phase 1</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Boost Crowd</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="boostCrowd" alt="" class="lead-image boost-crowd">
+        </div>
+
+        <div class="text-block row">
+          <p class="content">
+            We present the anonymous, trustless future evolution of crypto gaming and referral marketing, and it features huge rewards for you.
+          </p>
+          <p class="content">
+            The system runs on Ethereum’s global network, needs no personal info, and is 100% decentralized and trustless.  All you need to join is a personal Ether address, with all rewards transacted directly to your wallet.
+          </p>
+
+          <p class="content">
+            The system runs on Ethereum’s global network, needs no personal info, and is 100% decentralized and trustless.  All you need to join is a personal Ether address, with all rewards transacted directly to your wallet.
+          </p>
+
+          <p class="content">
+            The 3x10 forced matrix system means each spot has 3 available direct referral slots, and you receive crowd rewards from a large 10 level downline. The magic touch? Only spots with direct referrals receive rewards!
+          </p>
+
+          <p class="content">
+            For all your direct referrals you will always receive a direct referral reward based on the number of referrals in your first spot. So, if your first 3 referral slots are filled, you’ll always enjoy 8% on any new referral.
+          </p>
+
+          <p class="content">
+            Buy as many spots as you like then fill them to earn crowd rewards!
+          </p>
+        </div>
+
+      </div>
+
+      <div class="container set-ref-container content" *ngIf="refToDisplay">
+        <div class="row set-ref-title">
+          Select Between
+        </div>
+
+        <div class="row set-ref-wrapper">
+          <button
+            type="button"
+            class="set-ref-btn"
+            [class.active]="refToDisplay === 'firstRef'"
+            (click)="setRefToDisplay('firstRef')"
+          >
+            2%
+          </button>
+          <button
+            type="button"
+            class="set-ref-btn"
+            [class.active]="refToDisplay === 'secondRef'"
+            (click)="setRefToDisplay('secondRef')"
+          >
+            4%
+          </button>
+          <button
+            type="button"
+            class="set-ref-btn"
+            [class.active]="refToDisplay === 'thirdRef'"
+            (click)="setRefToDisplay('thirdRef')"
+          >
+            8%
+          </button>
+        </div>
+      </div>
+
+      <div class="container table-container">
+        <div class="table-wrapper">
+          <div class="table-placeholder row">
+            <div class="level-col">
+              <div class="eth-table-head level-head">{{levelText}}</div>
+              <div class="eth-table-col">
+                <div *ngFor="let i of levels" class="eth-table-row">{{i+1}}</div>
+              </div>
+            </div>
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'firstRef'">
+              <div class="eth-table-head eth-ref-head">1 referral = 2% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col row">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of firstRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of firstUsd" class="eth-table-row">
+                      USD {{usd | number | replaceString: ',': '.'}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'secondRef'">
+              <div class="eth-table-head eth-ref-head">2 referrals = 4% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col row">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of secondRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of secondUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
+                      '.' }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'thirdRef'">
+              <div class="eth-table-head eth-ref-head">3 referrals = 8% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col row">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of thirdRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of thirdUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
+                      '.'}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-end">
+          <p class="content table-disclaimer">ETH/USD rate based on live exchange rate.</p>
+        </div>
+      </div>
+
+    </article>
+
+    <!--PHASE 2-->
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Phase 2</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Boost Games</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="boostGame" alt="" class="lead-image ball">
+        </div>
+
+        <div class="row">
+          <p class="content">The games are created, coded, tested and ready to rock.</p>
+          <p class="content">
+            Use Ether to enjoy this multiplayer experience and win prizes in Ether currency. It’s a completely new market offering, featuring crypto games unlike anything else out right now.
+          </p>
+          <p class="content">
+            We implement sophisticated proprietary algorithms that have been adapted for potent blockchain functionality. Fully decentralized, trustless, and evolved for mass adoption.
+          </p>
+          <p class="content">
+            For competitive reasons we will disclose no further game details at this stage. We love the secrecy and excitement it brings - we’re sure you do, too.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!--PHASE 3-->
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Phase 3</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Boost Rewards</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="boostRewards" alt="" class="lead-image boost-reward">
+          <img [src]="mBoostRewards" alt="" class="lead-image boost-reward mob">
+        </div>
+
+        <div class="row">
+          <p class="content">
+            We will continue to cultivate the size of our crowd and elevate platform momentum. Our crypto-based game creations are geared for profitability.
+          </p>
+
+          <p class="content">
+            The market is in its infancy and the few existing decentralized games report massive untapped profits: Etheroll turns over ~$1 million daily with $500 average transaction size.
+          </p>
+
+          <p class="content">
+            The impending SuperOne game launch will open the floodgates for massive game rewards applicable to your tokens.
+          </p>
+
+          <p class="content">
+            We estimate game profit margins of ~50% gross wager. With a monthly average ETH 0.1 wager by one million game plays, monthly rewards will be upwards of ETH 50,000 divided across all tokens issued.
+          </p>
+
+          <p class="content">
+            The potential is huge - really huge! SuperOne is set to thrive in its combination of boundless crowd-power and sublimely-engineered crypto game concepts.
+          </p>
+
+          <p class="content">
+            Innovative, simple, delightful.
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="home-showcase">
+    <article class="home-features">
+
+
+      <div class="container">
+        <h2 class="home-features_title">How does it work?</h2>
+
+        <div class="row align-items-start flex-row quote">
+          <div class="quote-border">
+          </div>
+          <p class="home-quote">
+            We’re proud to introduce tomorrow’s decentralized crowd referral platform today. Join now to be a part of making history and massive rewards.
+          </p>
+        </div>
+
+        <div class="row phases">
+          <img [src]="getPhases" alt="" class="phases-image">
+          <img [src]="mGetPhases" class="phases-image mob">
+        </div>
+      </div>
+    </article>
+
+    <!--STEP 1-->
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Step 1</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Get Referred</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="getReferred" alt="" class="lead-image get-referred">
+        </div>
+
+        <div class="row">
+          <p class="content">
+            SuperOne access is by invitation only. Currently in stealth mode, we are compiling a powerful Ethereum generator for a select crowd. Be a part of it.
+          </p>
+          <p class="content">
+            The referral code is a valid Ether address from an existing spot holder.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!--STEP 2-->
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Step 2</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Get Spots</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="getSpots" alt="" class="lead-image get-spots">
+        </div>
+
+        <div class="row">
+          <p class="content">
+            Our structure accepts only paid spots. Just purchase at least one at a fixed ETH 0.1 rate. Once your first spot is confirmed, you can purchase as many as you like - simply purchase more spots and refer others with your Ether address as referral code.
+          </p>
+          <p class="content">
+            With your first payment confirmed, access our site’s account section in Google Chrome desktop using MetaMask. The app is a powerful example of distributed business’ login-free future. Here you will find all of your spots, their reward tiers and further statistics. You can also purchase additional spots with one click and without a new referral code.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!--STEP 3-->
+    <article class="home-lead pre-join">
+      <div class="container">
+        <div class="row">
+          <p class="home-features_lead">Step 3</p>
+        </div>
+        <div class="row">
+          <h2 class="home-features_title">Get Rewards</h2>
+        </div>
+        <div class="row d-flex justify-content-center lead_picture">
+          <img [src]="getRewards" alt="" class="lead-image get-rewards">
+        </div>
+
+        <div class="text-block row">
+          <p class="content">
+            All rewards are paid instantly in Ether via 100% trustless smart contracts whenever transactions occur in your downline. Decentralization ensures zero risk from human or machine error. In a further revolutionary gesture, we cover all transaction fees to boost engagement as transactions amplify.
+          </p>
+
+          <p class="content">
+            We elevate your experience with the free Telegram Messenger notification bot - subscribe with your Ether address to keep informed of any new reward transactions. We call it SuperRewards and soon everyone will be buzzing about it.
+          </p>
+
+          <p class="content">
+            When the games start grossing, you will also receive rewards via your tokens. Tokens are issued instantly when you purchase a spot and rewards are paid directly to your Ether address. Make sure you get your tokens transferred to your wallet - see instructions in our Help section.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <article class="home-lead home-join">
+      <div class="container">
+        <div class="row">
+          <h4 class="join-lead_title title_white">
+            <b>Join now!</b> Simply paste your referral’s invite ETH address:
+          </h4>
+        </div>
+        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
+      </div>
+    </article>
+
+
+    <article class="home-lead">
+      <div class="container">
+        <div class="row">
+          <p class="warning-content">
+            <b>Warning:</b> We love trustless freedom however a few ground rules must be mentioned.
+            We don’t accept public solicitation or spam. This system is for personal referrals only.
+            No public advertising or Ether address spamming. We don’t accept addresses with suspicious histories.
+            We’re industry professionals building a reputable crowd for the future.
+            We perform Ether address background checks. We don’t accept adverse ore devaluating behaviour.
+            We are prudent innovators exploring the future today. We are well versed in mathematics and technology
+            and we have created solid sustainable structures. These are absolutely zero tolerance.
+            Violations will result in Ether address blacklisting and blocking of rewards and tokens.
+            No exceptions.
+          </p>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+<footer class="home-footer">
+  <div class="container d-flex flex-column">
+    <div class="row footer-data">
+      <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
+
+      <div class="links">
+        <ul class="footer-list">
+          <li>
+            <a routerLink='/' routerLinkActive="active">Home</a>
+          </li>
+          <li>
+            <a routerLink="{{switchUrl}}">{{switchText}}</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/" target="_blank">News</a>
+          </li>
+          <li>
+            <a href="https://news.super.one/help/" target="_blank">Help</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li class="secondary">
+            <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
+          </li>
+          <li class="secondary">
+            <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <p class="copyright">© Super.One 2018</p>
+    </div>
+  </div>
+</footer>
+
+<app-overlay [hide]="hideOverlay"></app-overlay>

@@ -1,0 +1,10 @@
+<div class="overlay" *ngIf="!hide">
+  <div class="container-fluid justify-content-center">
+    <div class="row heading-wrapper">
+      <app-loader></app-loader>
+      <p class="overlay-title">We`re now mining <br> your transaction on blockchain</p>
+      <p class="overlay-text">Please wait upwards of a minute.</p>
+      <button class="overlay-btn" (click)="onOverlayClose()">Close</button>
+    </div>
+  </div>
+</div>
