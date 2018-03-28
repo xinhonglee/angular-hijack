@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,7 +28,9 @@
     "bootstrap": "^4.0.0-beta.2",
     "core-js": "^2.4.1",
     "d3": "^4.13.0",
+    "debug": "^3.1.0",
     "font-awesome": "^4.7.0",
+    "nan": "^2.10.0",
     "ngx-accordion": "0.0.17",
     "ngx-bootstrap": "^2.0.3",
     "ngx-clipboard": "^10.0.0",

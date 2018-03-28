@@ -1,21 +1,19 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 import {WindowRef} from '../utils/WindowRef';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 import {LocalStorageService} from 'angular-2-local-storage';
 
 import * as io from 'socket.io-client';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
 declare var require: any;
-let Web3 = require('web3');
-let ForcedMatrix = require('./../../../../../build/contracts/ForcedMatrix.json');
+const Web3 = require('web3');
 
 @Injectable()
 export class Web3Service {
 
   public isMetamaskConnected: boolean;
   public isMetamaskUnlocked: boolean;
-  private forcedMatrix: any;
   private forcedMatrixAddress;
 
   private web3: any;
@@ -36,17 +34,17 @@ export class Web3Service {
 
     this.bootstrapWeb3();
 
-    this.socket = io('', {
-      path: '/socket.io',
-      transports: ['websocket'],
-      secure: true,
-    });
-    this.socket.on('connect', () => {
-      console.log('Ws connected');
-    });
-    this.socket.on('disconnect', () => {
-      console.log('disconnected');
-    });
+    // this.socket = io('', {
+    //   path: '/socket.io',
+    //   transports: ['websocket'],
+    //   secure: true,
+    // });
+    // this.socket.on('connect', () => {
+    //   console.log('Ws connected');
+    // });
+    // this.socket.on('disconnect', () => {
+    //   console.log('disconnected');
+    // });
   }
 
   public getCoinbase() {
@@ -61,7 +59,6 @@ export class Web3Service {
       this.httpClient.get('/api/provider-settings')
         .subscribe(response => {
           this.forcedMatrixAddress = response['data'].matrix_address;
-          this.forcedMatrix = new this.web3.eth.Contract(ForcedMatrix.abi, this.forcedMatrixAddress);
         });
 
       this.web3.eth.getCoinbase().then(address => this.coinbase = address);
