@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="935px" height="500px" viewBox="0 0 935 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>IMAGE_OVERLAY_ARROWS</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="90.8882856%" cy="43.6128499%" fx="90.8882856%" fy="43.6128499%" r="100%" gradientTransform="translate(0.908883,0.436128),scale(0.593788,1.000000),rotate(90.000000),scale(1.000000,1.322003),translate(-0.908883,-0.436128)" id="radialGradient-1">
+            <stop stop-color="#26005A" offset="0%"></stop>
+            <stop stop-color="#0E0022" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="90.8882856%" cy="43.6128499%" fx="90.8882856%" fy="43.6128499%" r="100%" gradientTransform="translate(0.908883,0.436128),scale(0.593788,1.000000),rotate(90.000000),scale(1.000000,1.322003),translate(-0.908883,-0.436128)" id="radialGradient-2">
+            <stop stop-color="#26005A" offset="0%"></stop>
+            <stop stop-color="#0E0022" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SUPER.ONE_1440_HOME-Copy">
+            <g id="HERO">
+                <g id="HERO_HEADING+ARROWS">
+                    <g id="IMAGE_OVERLAY_ARROWS">
+                        <path d="M92,0 L816.635768,0.154574132 L922.767877,204.195286 C937.714185,232.929808 937.817837,267.123709 923.046008,295.948315 L818.475055,500 L92,500 L92,0 Z" id="Mask" fill="url(#radialGradient-1)" opacity="0.200000003" transform="translate(513.025852, 250.000000) scale(1, -1) translate(-513.025852, -250.000000) "></path>
+                        <path d="M46,0 L770.635768,0.154574132 L876.767877,204.195286 C891.714185,232.929808 891.817837,267.123709 877.046008,295.948315 L772.475055,500 L46,500 L46,0 Z" id="BG-Copy-2" fill="url(#radialGradient-1)" opacity="0.400000006" transform="translate(467.025852, 250.000000) scale(1, -1) translate(-467.025852, -250.000000) "></path>
+                        <path d="M17,0 L741.635768,0.154574132 L847.767877,204.195286 C862.714185,232.929808 862.817837,267.123709 848.046008,295.948315 L743.475055,500 L17,500 L17,0 Z" id="BG-Copy" fill="url(#radialGradient-1)" opacity="0.600000024" transform="translate(438.025852, 250.000000) scale(1, -1) translate(-438.025852, -250.000000) "></path>
+                        <path d="M0,0 L724.691316,0.154574132 L830.765933,204.069128 C845.749925,232.873888 845.816232,267.160442 830.943765,296.022942 L725.837063,500 L0,500 L0,0 Z" id="BG" fill="url(#radialGradient-2)" transform="translate(421.025604, 250.000000) scale(1, -1) translate(-421.025604, -250.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

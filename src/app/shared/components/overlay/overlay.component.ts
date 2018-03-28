@@ -1,22 +1,20 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core"
 
 @Component({
-  selector: 'app-overlay',
-  templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.css']
+  selector: "app-overlay",
+  templateUrl: "./overlay.component.html",
+  styleUrls: ["./overlay.component.scss"]
 })
 export class OverlayComponent implements OnInit {
+  @Input() hide: boolean
 
-  @Input() hide: boolean;
+  constructor() {}
 
-  constructor() { }
+  public ethImage = "assets/images/ETH_3D.png"
 
-  public ethImage = 'assets/images/ETH_3D.png';
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onOverlayClose() {
-    this.hide = true;
+    this.hide = true
   }
 }

@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core"
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+	selector: "app-navigation",
+	templateUrl: "./navigation.component.html",
+	styleUrls: ["./navigation.component.scss"]
 })
 export class NavigationComponent implements OnInit {
+	public logoPath = "assets/images/LOGO.png"
 
-  public logoPath = 'assets/images/LOGO.png';
+	constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	ngOnInit() {}
 }
