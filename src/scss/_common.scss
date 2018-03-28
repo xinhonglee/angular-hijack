@@ -1,0 +1,189 @@
+body {
+  font-family: "ProximaNova";
+  color: white;
+  font-size: 18px;
+  background-color: $bg_primary;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $purpleLight;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $purpleLight;
+    text-decoration: none;
+  }
+}
+
+p {
+  margin-bottom: 15px;
+  a {
+    font-weight: bold;
+  }
+}
+
+.telegram-bot {
+  display: flex;
+  align-items: center;
+  color: $purpleLight;
+  margin-bottom: 15px;
+  span {
+    flex: 1;
+  }
+}
+
+.telegram-btn {
+  display: inline-flex;
+  align-items: center;
+
+  border: solid 1px $purpleLight;
+  border: 1px solid $purpleLight;
+  border-radius: 4px;
+  font-size: 24px;
+  color: $purpleLight;
+  text-decoration: none;
+  height: 45px;
+  padding: 0 18px;
+  img {
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+h2 {
+  font-family: "AktivGrotesk";
+  font-size: 36px;
+  margin: 0 0 20px;
+  line-height: 1.1;
+}
+
+h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.section-secondary {
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  .section-content {
+    max-width: 780px;
+    margin: auto;
+    p {
+      margin-bottom: 1.333em;
+      line-height: 1.333;
+    }
+  }
+  &.warning {
+    background-color: #000000;
+    padding: 40px 0;
+    p {
+      opacity: 0.5;
+      font-size: 16px;
+      line-height: 1.18;
+    }
+  }
+}
+
+.section-primary {
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  .container {
+    position: relative;
+    z-index: 5;
+  }
+  &:before,
+  &:after {
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    display: block;
+    content: "";
+  }
+
+  &:before {
+    right: 0;
+    width: 50%;
+    z-index: 1;
+  }
+  &:after {
+    left: 0;
+    width: 65%;
+    z-index: 2;
+    background-image: url(../assets/images/IMAGE_OVERLAY_ARROWS.svg);
+  }
+}
+
+.section-hero {
+  height: 400px;
+  &.phase-1 {
+    &:before {
+      background-image: url(../assets/images/HOME_BOOST_CROWD.png);
+    }
+  }
+  &.phase-2 {
+    &:before {
+      background-image: url(../assets/images/HOME_BOOST_GAME.png);
+    }
+  }
+  &.phase-3 {
+    &:before {
+      background-image: url(../assets/images/HOME_BOOST_REWARDS.png);
+    }
+  }
+  &.join-future {
+    &:before {
+      background-image: url(../assets/images/JOIN_FUTURE.png);
+    }
+  }
+  &.join-hero {
+    &:before {
+      background-image: url(../assets/images/JOIN_HERO.png);
+    }
+  }
+  .phase-number {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.15;
+    color: $purpleLight;
+  }
+  .section-name {
+    font-family: "AktivGrotesk";
+    line-height: 1.15;
+    font-weight: bold;
+    font-size: 48px;
+  }
+}
+
+.btn-strok {
+  border: solid 1px white;
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  height: 45px;
+  line-height: 43px;
+  padding: 0 18px;
+  font-size: 30px;
+  font-weight: bold;
+  background: none;
+  &:active,
+  &:focus,
+  &:hover {
+    border-color: $purpleLight;
+    color: $purpleLight;
+    box-shadow: none;
+    outline: none;
+  }
+}

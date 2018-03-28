@@ -1,7 +1,5 @@
 @import "~scss/variables";
-.home-footer {
-	margin-bottom: 80px;
-}
+
 .home-hero-section {
 	height: 500px;
 	.home-hero-caption {
@@ -16,93 +14,5 @@
 
 	&:before {
 		background-image: url(../../../assets/images/HOME_IMAGE_HERO.png);
-	}
-}
-
-.section-secondary {
-	display: flex;
-	align-items: center;
-	padding: 80px 0;
-	.section-content {
-		max-width: 780px;
-		margin: auto;
-		p {
-			margin-bottom: 1.333em;
-			line-height: 1.333;
-		}
-	}
-	&.warning {
-		background-color: #000000;
-		padding: 40px 0;
-		p {
-			opacity: 0.5;
-			font-size: 16px;
-			line-height: 1.18;
-		}
-	}
-}
-
-.section-primary {
-	display: flex;
-	position: relative;
-	align-items: center;
-	overflow: hidden;
-	.container {
-		position: relative;
-		z-index: 5;
-	}
-	&:before,
-	&:after {
-		background-size: auto 100%;
-		background-position: right center;
-		background-repeat: no-repeat;
-		position: absolute;
-
-		top: 0;
-		bottom: 0;
-		display: block;
-		content: "";
-	}
-
-	&:before {
-		right: 0;
-		width: 50%;
-		z-index: 1;
-	}
-	&:after {
-		left: 0;
-		width: 65%;
-		z-index: 2;
-		background-image: url(../../../assets/images/IMAGE_OVERLAY_ARROWS.svg);
-	}
-}
-
-.section-phase {
-	height: 400px;
-	&.phase-1 {
-		&:before {
-			background-image: url(../../../assets/images/HOME_BOOST_CROWD.png);
-		}
-	}
-	&.phase-2 {
-		&:before {
-			background-image: url(../../../assets/images/HOME_BOOST_GAME.png);
-		}
-	}
-	&.phase-3 {
-		&:before {
-			background-image: url(../../../assets/images/HOME_BOOST_REWARDS.png);
-		}
-	}
-	.phase-number {
-		font-size: 36px;
-		font-weight: bold;
-		line-height: 1.15;
-		color: $purpleLight;
-	}
-	.phase-name {
-		font-family: "AktivGrotesk";
-		line-height: 1.15;
-		font-size: 48px;
 	}
 }

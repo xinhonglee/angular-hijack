@@ -7,162 +7,10 @@
 @import "../../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css";
 @import "../../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-regular.css";
 
-body {
-  font-family: "ProximaNova";
-  color: white;
-  font-size: 18px;
-  background-color: $bg_primary;
+@import "~scss/common";
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  color: $purpleLight;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $purpleLight;
-    text-decoration: none;
-  }
-}
-
-p {
-  margin-bottom: 15px;
-  a {
-    font-weight: bold;
-  }
-}
-
-.nav-wrapper {
-  position: absolute;
-  width: 100%;
-  z-index: 10;
-  padding: 25px 0;
-  .nav-ul {
-    padding: 0;
-    line-height: 1.22;
-    margin-bottom: 0;
-    li {
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 15px;
-      font-size: 18px;
-    }
-    a {
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-      &:hover {
-        color: $purpleLight;
-      }
-
-      &.active {
-        color: $purpleLight;
-      }
-    }
-  }
-}
-
-.telegram-bot {
-  display: flex;
-  align-items: center;
-  color: $purpleLight;
-  margin-bottom: 15px;
-  span {
-    flex: 1;
-  }
-}
-
-.telegram-btn {
-  display: inline-flex;
-  align-items: center;
-
-  border: solid 1px $purpleLight;
-  border: 1px solid $purpleLight;
-  border-radius: 4px;
-  font-size: 24px;
-  color: $purpleLight;
-  text-decoration: none;
-  height: 45px;
-  padding: 0 18px;
-  img {
-    height: 20px;
-    margin-right: 10px;
-  }
-}
-
-h2 {
-  font-family: "AktivGrotesk";
-  font-size: 36px;
-  margin: 0 0 20px;
-  line-height: 1.1;
-}
-
-h3 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.5;
-  font-weight: bold;
-}
-
-.join-bar {
-  position: fixed;
-  left: 0;
-  padding: 17px 0;
-  display: flex;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  z-index: 44;
-  background-image: linear-gradient(-180deg, #26005a 0%, #0e0022 100%);
-  h4 {
-    font-size: 20px;
-    margin: 0;
-  }
-  .join-group {
-    margin: 0;
-    .join-input {
-      height: 44px;
-      font-size: 18px;
-      background-color: transparent;
-      border-radius: 5px 0 0 5px;
-      box-shadow: none;
-      color: white;
-      border-right: 0;
-      &:focus {
-        border-color: white;
-      }
-      &::-webkit-input-placeholder {
-        color: rgba(white, 0.3);
-      }
-      &::-moz-placeholder {
-        color: rgba(white, 0.3);
-      }
-      &:-ms-input-placeholder {
-        color: rgba(white, 0.3);
-      }
-      &:-moz-placeholder {
-        color: rgba(white, 0.3);
-      }
-    }
-    .join-btn {
-      min-width: 100px;
-      height: 44px;
-      border-right: 5px;
-      color: white;
-      font-weight: bold;
-      text-transform: uppercase;
-      background-color: $purpleLighter;
-    }
-  }
-  .form-errors {
-    color: #ec373c;
-    font-size: 20px;
-    padding: 5px 20px;
-    width: 100%;
-  }
-}
+@import "~scss/footer";
+@import "~scss/header";
 
 /*section {*/
 
@@ -674,72 +522,6 @@ h3 {
   margin-bottom: 100px;
 }
 
-.home-footer {
-  background-color: #0e0022;
-  overflow: hidden;
-  position: relative;
-  padding-top: 95px;
-  padding-bottom: 20px;
-  font-size: 18px;
-  .container {
-    position: relative;
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background-image: radial-gradient(60% 50%, #26005a 0%, #0e0022 100%);
-  }
-  .footer-data {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 110px;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    li {
-      a {
-        line-height: 2;
-      }
-    }
-  }
-  .footer-nav {
-    a {
-      color: white;
-      &:hover,
-      &.active {
-        color: $purpleLight;
-      }
-    }
-  }
-  .footer-privacy {
-    a {
-      color: rgba(white, 0.5);
-      &:hover {
-        color: rgba(white, 0.8);
-      }
-    }
-  }
-
-  .footer-logo {
-    height: 55px;
-  }
-
-  .copyright {
-    margin: 0;
-    font-size: 14px;
-    font-family: AktivGrotesk;
-  }
-}
-
 .account-stats {
   background-image: radial-gradient(circle at 53% 10%, #26005a, #0e0022);
   padding-bottom: 25px;
@@ -1067,34 +849,33 @@ h3 {
   border: solid 1px rgba(255, 255, 255, 0.3);
 }
 
-.select-button {
-  /*width: 100%;*/
-  min-width: 270px;
-  height: 55px;
-  border-radius: 8px;
+// .select-button {
+//   /*width: 100%;*/
+//   min-width: 270px;
+//   height: 55px;
+//   border-radius: 8px;
 
-  background-color: transparent;
+//   background-color: transparent;
 
-  font-family: ProximaNova;
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #ffffff;
+//   font-family: ProximaNova;
+//   font-size: 30px;
+//   font-weight: bold;
+//   font-style: normal;
+//   font-stretch: normal;
+//   line-height: normal;
+//   letter-spacing: normal;
+//   color: #ffffff;
 
-  cursor: pointer;
-}
+//   cursor: pointer;
+// }
 
-.selected-button {
-  border: solid 1px #ffffff;
-}
+// .selected-button {
 
-.unselected-button {
-  opacity: 0.5;
-  border: 0;
-}
+// }
+
+// .unselected-button {
+//   opacity: 0.5;
+// }
 
 .mobile-button {
   border-right: 0;

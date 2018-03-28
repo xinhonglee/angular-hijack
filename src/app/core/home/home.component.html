@@ -5,7 +5,7 @@
         <a routerLink='/' routerLinkActive="active">Home</a>
       </li>
       <li>
-        <a routerLink="{{switchUrl}}">{{switchText}}</a>
+        <a routerLink="/join">Join</a>
       </li>
       <li>
         <a routerLink="/" href="https://news.super.one/" target="_blank">News</a>
@@ -16,18 +16,7 @@
     </ul>
   </div>
 </nav>
-<div class="join-bar">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col">
-        <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
-      </div>
-      <div class="col">
-        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
-      </div>
-    </div>
-  </div>
-</div>
+
 <section class="section-primary home-hero-section">
   <div class="container">
     <div class="home-hero-caption">
@@ -45,7 +34,7 @@ via blockchain innovation.</h3>
       <p>You’ll need an Ether referral address from someone who’s already joined. Just enter it at the Join section below.
         <br>Then use your Google Chrome desktop browser with MetaMask plugin or the mobile-specific Trust Wallet to pay ETH 0.1 for your own referral spot. </p>
       <p>Now you’re ready to participate - start sharing your Ether referral address and earning rewards! For more information please go to our
-        <a routerLink="{{switchUrl}}">Join section.</a>
+        <a routerLink="/join">Join section.</a>
       </p>
       <div class="telegram-bot">
         <span><b>GET FREE</b> notifications on all your transactions from our Telegram bot</span>
@@ -58,10 +47,10 @@ via blockchain innovation.</h3>
   </div>
 </section>
 <!-- Phase 1 -->
-<section class="section-primary section-phase phase-1">
+<section class="section-primary section-hero phase-1">
   <div class="container">
     <div class="phase-number">Phase 1</div>
-    <div class="phase-name">Boost Crowd</div>
+    <div class="section-name">Boost Crowd</div>
   </div>
 </section>
 <section class="section-secondary">
@@ -138,10 +127,10 @@ via blockchain innovation.</h3>
   </div>
 </section>
 <!-- Phase 2 -->
-<section class="section-primary section-phase phase-2">
+<section class="section-primary section-hero phase-2">
   <div class="container">
     <div class="phase-number">Phase 2</div>
-    <div class="phase-name">Boost Game</div>
+    <div class="section-name">Boost Game</div>
   </div>
 </section>
 <section class="section-secondary">
@@ -155,10 +144,10 @@ via blockchain innovation.</h3>
   </div>
 </section>
 <!-- Phase 3 -->
-<section class="section-primary section-phase phase-3">
+<section class="section-primary section-hero phase-3">
   <div class="container">
     <div class="phase-number">Phase 3</div>
-    <div class="phase-name">Boost Rewards</div>
+    <div class="section-name">Boost Rewards</div>
   </div>
 </section>
 <section class="section-secondary">
@@ -180,7 +169,21 @@ via blockchain innovation.</h3>
     </div>
   </div>
 </section>
-<footer class="home-footer">
+
+<div class="join-bar">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
+      </div>
+      <div class="col">
+        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer">
   <div class="container">
     <div class="footer-data row">
       <div class="col-7">
@@ -192,7 +195,7 @@ via blockchain innovation.</h3>
             <a routerLink='/' routerLinkActive="active">Home</a>
           </li>
           <li>
-            <a routerLink="{{switchUrl}}">{{switchText}}</a>
+            <a routerLink="/join">Join</a>
           </li>
           <li>
             <a href="https://news.super.one/" target="_blank">News</a>

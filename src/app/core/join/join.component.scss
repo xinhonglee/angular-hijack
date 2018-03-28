@@ -1,144 +1,46 @@
-.account-nav {
-  background-image: radial-gradient(circle at 51% 3%, #26005a, #0e0022);
-}
-
-.nav-img {
-  padding-top: 18px;
-  padding-bottom: 17px;
-  padding-left: 37px;
-
-  /*align-self: flex-start;*/
-  width: auto;
-}
-
-.nav-img img {
-  height: 35px;
-  width: auto;
-}
-
-.account-ul {
-  max-width: 450px;
-  width: 100%;
-
-  display: flex;
-  align-self: flex-end;
-  justify-content: space-between;
-
-  padding-top: 22px;
-  padding-bottom: 19px;
-  padding-right: 30px;
-  margin-bottom: 0;
-
-  align-self: flex-end;
-  flex: 1;
-}
-
-.account-stats {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.telegram-button .fa-telegram-plane {
-  margin-right: 8px;
-}
-
-
-.chart-wrapper {
-  max-height: 320px;
-  max-width: 420px;
-
-  height: 100%;
-  width: 100%;
-
-  align-self: flex-end;
-}
-::ng-deep .ngx-charts text {
-  fill: #fff;
-}
-
-::ng-deep .ngx-charts .bar {
-  width: 40px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-
-  .container-fluid {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  .account-date {
-    padding-left: 0;
-  }
-
-  .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .rewards-wrapper {
-    flex-flow: column nowrap;
-  }
-
-  .account-nav {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .account-ul {
-    padding-left: 0;
-    padding-right: 0;
-
-    justify-content: space-around;
-  }
-
-  .stats-graph {
-    padding-right: 0;
-    padding-left: 0;
-
-  }
-
-  .account-ul li {
-    font-size: 18px;
-  }
-
-  .chart-wrapper {
-    align-self: center;
-    max-height: 250px;
-    height: auto;
-    max-width: none;
-  }
-
-  .stats-graph {
-    margin-bottom: 80px;
-  }
-
-  .nav-img {
-    display: none;
-  }
-
-  .account-nav {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .account-ul {
-    padding-left: 0;
-    padding-right: 0;
-
-    max-width: none;
-
-    justify-content: space-around;
-  }
-
-  .stats-data {
-    padding-left: 0;
-    border-left: none;
-  }
-
-  .telegram-button {
-    align-self: flex-end;
+@import "~scss/variables";
+.join-steps {
+  .step-item {
+    margin: auto;
+    max-width: 945px;
+    padding: 70px 80px 70px 90px;
+    background-image: linear-gradient(-180deg, rgba(#6b00ff, 0.5) 0%, rgba(#4d04b0, 0.5) 100%);
+    box-shadow: inset 1000px 1000px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    + .step-item {
+      margin-top: 40px;
+    }
+    .step-number {
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 1.15;
+      color: $purpleLight;
+    }
+    .step-title {
+      font-family: "AktivGrotesk";
+      line-height: 1.15;
+      font-weight: bold;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-bottom: 5px;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+    ul li,
+    p {
+      font-size: 24px;
+      line-height: 1.2;
+      a {
+        font-weight: bold;
+      }
+    }
+    p {
+      margin-bottom: 24px;
+    }
   }
 }
