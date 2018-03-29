@@ -16,16 +16,28 @@
     </ul>
   </div>
 </nav>
-
-<section class="section-primary home-hero-section">
+<div class="hero-section-wrapper">
+  <section class="section-primary home-hero-section">
+    <div class="container">
+      <div class="home-hero-caption">
+        <img [src]="logoPath" class="img-logo" alt="SuperOne logo">
+        <h3>The world’s first decentralized platform unifying crypto gaming and crowd referral marketing via blockchain innovation.</h3>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="join-bar">
   <div class="container">
-    <div class="home-hero-caption">
-      <img [src]="logoPath" class="img-logo" alt="SuperOne logo">
-      <h3>The world’s first decentralized platform unifying crypto gaming and crowd referral marketing 
-via blockchain innovation.</h3>
+    <div class="row align-items-center">
+      <div class="col">
+        <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
+      </div>
+      <div class="col">
+        <app-join-group [hide]="hideOverlay" [whiteTitle]="true" (hideChange)="handleHidechange($event)"></app-join-group>
+      </div>
     </div>
   </div>
-</section>
+</div>
 <!-- Join Section -->
 <section class="section-secondary">
   <div class="container">
@@ -47,71 +59,81 @@ via blockchain innovation.</h3>
   </div>
 </section>
 <!-- Phase 1 -->
-<section class="section-primary section-hero phase-1">
-  <div class="container">
-    <div class="phase-number">Phase 1</div>
-    <div class="section-name">Boost Crowd</div>
-  </div>
-</section>
-<section class="section-secondary">
-  <div class="container">
-    <div class="section-content">
-      <p class="mb-5">We present the anonymous, trustless future evolution of crypto gaming and referral marketing, and it features huge rewards for you.</p>
-      <p>We start by building a gigantic stakeholder crowd and our first game launches when 1 million spots are filled. Spots will feature reward sharing tokens that decrease in number with each spot created.</p>
-      <p class="mb-0">The system runs on Ethereum’s global network, needs no personal info, and is 100% decentralized and trustless. All you need to join is a personal Ether address, with all rewards transacted directly to your wallet. </p>
-      <p>The 3x10 forced matrix system means each spot has 3 available direct referral slots, and you receive crowd rewards from a large 10 level downline. The magic touch? Only spots with direct referrals receive rewards!</p>
-      <p>For all your direct referrals you will always receive a direct referral reward based on the number of referrals in your first spot. So, if your first 3 referral slots are filled, you’ll always enjoy 8% on any new referral.</p>
-      <p>Buy as many spots as you like then fill them to earn crowd rewards! </p>
+<div class="section-wrapper">
+  <section class="section-primary section-hero phase-1">
+    <div class="container">
+      <div class="phase-number">Phase 1</div>
+      <div class="section-name">Boost Crowd</div>
     </div>
-    <div class="table-container mt-5">
-      <div class="table-wrapper">
-        <div class="table-placeholder d-flex">
-          <div class="level-col">
-            <div class="eth-table-head level-head">{{levelText}}</div>
-            <div class="eth-table-col">
-              <div *ngFor="let i of levels" class="eth-table-row">{{i+1}}</div>
-            </div>
+  </section>
+  <section class="section-secondary">
+    <div class="container">
+      <div class="section-content">
+        <p class="mb-5">We present the anonymous, trustless future evolution of crypto gaming and referral marketing, and it features huge rewards for you.</p>
+        <p>We start by building a gigantic stakeholder crowd and our first game launches when 1 million spots are filled. Spots will feature reward sharing tokens that decrease in number with each spot created.</p>
+        <p class="mb-0">The system runs on Ethereum’s global network, needs no personal info, and is 100% decentralized and trustless. All you need to join is a personal Ether address, with all rewards transacted directly to your wallet. </p>
+        <p>The 3x10 forced matrix system means each spot has 3 available direct referral slots, and you receive crowd rewards from a large 10 level downline. The magic touch? Only spots with direct referrals receive rewards!</p>
+        <p>For all your direct referrals you will always receive a direct referral reward based on the number of referrals in your first spot. So, if your first 3 referral slots are filled, you’ll always enjoy 8% on any new referral.</p>
+        <p>Buy as many spots as you like then fill them to earn crowd rewards! </p>
+      </div>
+      <div class="table-container mt-5">
+        <div class="table-toggle">
+          <h6>Select  between:</h6>
+          <div class="table-toggle-buttons">
+            <button class="btn btn-strok toggle-item" [ngClass]="{'active': refToDisplay === 'firstRef'}" (click)="setRefToDisplay('firstRef')">2%</button>
+            <button class="btn btn-strok toggle-item" [ngClass]="{'active': refToDisplay === 'secondRef'}" (click)="setRefToDisplay('secondRef')">4%</button>
+            <button class="btn btn-strok toggle-item" [ngClass]="{'active': refToDisplay === 'thirdRef'}" (click)="setRefToDisplay('thirdRef')">8%</button>
           </div>
-          <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'firstRef'">
-            <div class="eth-table-head eth-ref-head">1 referral = 2% rewards</div>
-            <div class="container-fluid">
-              <div class="eth-table-col d-flex">
-                <div class="col-6 sub-row left-row">
-                  <div *ngFor="let eth of firstRef" class="eth-table-row">ETH {{eth}}</div>
-                </div>
-                <div class="col-6 sub-row">
-                  <div *ngFor="let usd of firstUsd" class="eth-table-row">
-                    USD {{usd | number | replaceString: ',': '.'}}
+        </div>
+        <div class="table-wrapper">
+          <div class="table-placeholder d-flex">
+            <div class="level-col level-index">
+              <div class="eth-table-head level-head">{{levelText}}</div>
+              <div class="eth-table-col">
+                <div *ngFor="let i of levels" class="eth-table-row">{{i+1}}</div>
+              </div>
+            </div>
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'firstRef'">
+              <div class="eth-table-head eth-ref-head">1 referral = 2% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col d-flex">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of firstRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of firstUsd" class="eth-table-row">
+                      USD {{usd | number | replaceString: ',': '.'}}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'secondRef'">
-            <div class="eth-table-head eth-ref-head">2 referrals = 4% rewards</div>
-            <div class="container-fluid">
-              <div class="eth-table-col d-flex">
-                <div class="col-6 sub-row left-row">
-                  <div *ngFor="let eth of secondRef" class="eth-table-row">ETH {{eth}}</div>
-                </div>
-                <div class="col-6 sub-row">
-                  <div *ngFor="let usd of secondUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'secondRef'">
+              <div class="eth-table-head eth-ref-head">2 referrals = 4% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col d-flex">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of secondRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of secondUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
                       '.' }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'thirdRef'">
-            <div class="eth-table-head eth-ref-head">3 referrals = 8% rewards</div>
-            <div class="container-fluid">
-              <div class="eth-table-col d-flex">
-                <div class="col-6 sub-row left-row">
-                  <div *ngFor="let eth of thirdRef" class="eth-table-row">ETH {{eth}}</div>
-                </div>
-                <div class="col-6 sub-row">
-                  <div *ngFor="let usd of thirdUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
+            <div class="level-col first-ref" *ngIf="!refToDisplay || refToDisplay === 'thirdRef'">
+              <div class="eth-table-head eth-ref-head">3 referrals = 8% rewards</div>
+              <div class="container-fluid">
+                <div class="eth-table-col d-flex">
+                  <div class="col-6 sub-row left-row">
+                    <div *ngFor="let eth of thirdRef" class="eth-table-row">ETH {{eth}}</div>
+                  </div>
+                  <div class="col-6 sub-row">
+                    <div *ngFor="let usd of thirdUsd" class="eth-table-row">USD {{usd | number | replaceString: ',':
                       '.'}}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -119,58 +141,54 @@ via blockchain innovation.</h3>
           </div>
         </div>
       </div>
+      <p class="table-disclaimer text-right">ETH/USD rate based on live exchange rate.</p>
+      <div class="section-content">
+        <p class="mt-5 mb-0 teble-example">Example: You buy 3 spots for 9 available referral slots. Then you refer 5 friends and fill 3 referral slots (at 8%) on your first spot and 2 (at 4%) on your second spot. A transaction below these spots brings one 8% reward and one 4% for 12% total.</p>
+      </div>
     </div>
-    <p class="table-disclaimer text-right">ETH/USD rate based on live exchange rate.</p>
-    <div class="section-content">
-      <p class="mt-5 mb-0 teble-example">Example: You buy 3 spots for 9 available referral slots. Then you refer 5 friends and fill 3 referral slots (at 8%) on your first spot and 2 (at 4%) on your second spot. A transaction below these spots brings one 8% reward and one 4% for 12% total.</p>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 <!-- Phase 2 -->
-<section class="section-primary section-hero phase-2">
-  <div class="container">
-    <div class="phase-number">Phase 2</div>
-    <div class="section-name">Boost Game</div>
-  </div>
-</section>
-<section class="section-secondary">
-  <div class="container">
-    <div class="section-content">
-      <p>The game is created, smart contracts coded, tested and ready to rock.</p>
-      <p>Use Ether to enjoy this multiplayer experience and win prizes in Ether currency. It’s a completely new market offering, featuring crypto games unlike anything else out right now.</p>
-      <p>We implement sophisticated proprietary algorithms that have been adapted for potent blockchain functionality. Fully decentralized, trustless, and evolved for mass adoption.</p>
-      <p>For competitive reasons we will disclose no further game details at this stage. We love the secrecy and excitement it brings - we’re sure you do, too. </p>
+<div class="section-wrapper">
+  <section class="section-primary section-hero phase-2">
+    <div class="container">
+      <div class="phase-number">Phase 2</div>
+      <div class="section-name">Boost Game</div>
     </div>
-  </div>
-</section>
+  </section>
+  <section class="section-secondary">
+    <div class="container">
+      <div class="section-content">
+        <p>The game is created, smart contracts coded, tested and ready to rock.</p>
+        <p>Use Ether to enjoy this multiplayer experience and win prizes in Ether currency. It’s a completely new market offering, featuring crypto games unlike anything else out right now.</p>
+        <p>We implement sophisticated proprietary algorithms that have been adapted for potent blockchain functionality. Fully decentralized, trustless, and evolved for mass adoption.</p>
+        <p>For competitive reasons we will disclose no further game details at this stage. We love the secrecy and excitement it brings - we’re sure you do, too. </p>
+      </div>
+    </div>
+  </section>
+</div>
 <!-- Phase 3 -->
-<section class="section-primary section-hero phase-3">
-  <div class="container">
-    <div class="phase-number">Phase 3</div>
-    <div class="section-name">Boost Rewards</div>
-  </div>
-</section>
-<section class="section-secondary">
-  <div class="container">
-    <div class="section-content">
-      <p>We will continue to cultivate the size of our crowd and elevate platform momentum. Our crypto-based game creations are geared for profitability. </p>
-      <p>The market is in its infancy and the few existing decentralized games report massive untapped profits: Etheroll turns over ~$1 million daily with $500 average transaction size.</p>
-      <p>The impending SuperOne game launch will open the floodgates for massive game rewards applicable to your tokens. </p>
-      <p>We estimate game profit margins of ~50% gross wager. With a monthly average ETH 0.1 wager by one million game plays, monthly rewards will be upwards of ETH 50,000 divided across all tokens issued. </p>
-      <p>The potential is huge - really huge! SuperOne is set to thrive in its combination of boundless crowd-power and sublimely-engineered crypto game concepts.</p>
-      <p>Innovative, simple, delightful.</p>
+<div class="section-wrapper">
+  <section class="section-primary section-hero phase-3">
+    <div class="container">
+      <div class="phase-number">Phase 3</div>
+      <div class="section-name">Boost Rewards</div>
     </div>
-  </div>
-</section>
-<section class="section-secondary warning">
-  <div class="container">
-    <div class="section-content">
-      <p class="mb-0">Warning: We love trustless freedom however a few ground rules must be mentioned. We don’t accept public solicitation or spam. This system is for personal referrals only. No public advertising or Ether address spamming. We don’t accept addresses with suspicious histories. We’re industry professionals building a reputable crowd for the future. We perform Ether address background checks. We don’t accept adverse ore devaluating behaviour. We are prudent innovators exploring the future today. We are well versed in mathematics and technology and we have created solid sustainable structures. These are absolutely zero tolerance. Violations will result in Ether address blacklisting and blocking of rewards and tokens. No exceptions.</p>
+  </section>
+  <section class="section-secondary">
+    <div class="container">
+      <div class="section-content">
+        <p>We will continue to cultivate the size of our crowd and elevate platform momentum. Our crypto-based game creations are geared for profitability. </p>
+        <p>The market is in its infancy and the few existing decentralized games report massive untapped profits: Etheroll turns over ~$1 million daily with $500 average transaction size.</p>
+        <p>The impending SuperOne game launch will open the floodgates for massive game rewards applicable to your tokens. </p>
+        <p>We estimate game profit margins of ~50% gross wager. With a monthly average ETH 0.1 wager by one million game plays, monthly rewards will be upwards of ETH 50,000 divided across all tokens issued. </p>
+        <p>The potential is huge - really huge! SuperOne is set to thrive in its combination of boundless crowd-power and sublimely-engineered crypto game concepts.</p>
+        <p>Innovative, simple, delightful.</p>
+      </div>
     </div>
-  </div>
-</section>
-
-<div class="join-bar">
+  </section>
+</div>
+<div class="join-bar visible-xs">
   <div class="container">
     <div class="row align-items-center">
       <div class="col">
@@ -182,6 +200,13 @@ via blockchain innovation.</h3>
     </div>
   </div>
 </div>
+<section class="section-secondary warning">
+  <div class="container">
+    <div class="section-content">
+      <p class="mb-0"><b>Warning:</b> We love trustless freedom however a few ground rules must be mentioned. We don’t accept public solicitation or spam. This system is for personal referrals only. No public advertising or Ether address spamming. We don’t accept addresses with suspicious histories. We’re industry professionals building a reputable crowd for the future. We perform Ether address background checks. We don’t accept adverse ore devaluating behaviour. We are prudent innovators exploring the future today. We are well versed in mathematics and technology and we have created solid sustainable structures. These are absolutely zero tolerance. Violations will result in Ether address blacklisting and blocking of rewards and tokens. No exceptions.</p>
+    </div>
+  </div>
+</section>
 
 <footer class="page-footer">
   <div class="container">
@@ -219,5 +244,4 @@ via blockchain innovation.</h3>
     <p class="copyright">© Super.One 2018</p>
   </div>
 </footer>
-
 <app-overlay [hide]="hideOverlay"></app-overlay>

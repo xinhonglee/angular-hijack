@@ -1,18 +1,73 @@
 @import "~scss/variables";
 
 .home-hero-section {
-	height: 500px;
+	height: 35vw;
+	max-height: 500px;
 	.home-hero-caption {
 		.img-logo {
 			height: 56px;
 		}
 		h3 {
-			max-width: 570px;
+			max-width: 50%;
 			margin-top: 60px;
 		}
 	}
 
 	&:before {
 		background-image: url(../../../assets/images/HOME_IMAGE_HERO.png);
+	}
+}
+.table-toggle {
+	display: none;
+}
+
+@media screen and (max-width: 991px) {
+	.table-toggle {
+		display: block;
+		margin-bottom: 18px;
+		.table-toggle-buttons {
+			display: flex;
+			justify-content: space-between;
+		}
+		h6 {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 14px;
+		}
+		.btn {
+			opacity: 0.5;
+			font-size: 24px;
+			&.active {
+				opacity: 1;
+				border-color: white;
+				color: white;
+			}
+		}
+	}
+	.home-hero-section {
+		height: auto;
+		max-height: 100%;
+		.home-hero-caption {
+			.img-logo {
+				height: 49px;
+			}
+			h3 {
+				max-width: 310px;
+				margin-top: 25px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+	.home-hero-section {
+		.home-hero-caption {
+			.img-logo {
+				height: 46px;
+			}
+			h3 {
+				margin-top: 40px;
+			}
+		}
 	}
 }

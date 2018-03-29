@@ -24,7 +24,7 @@
       margin-bottom: 20px;
     }
     .btn {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
     ul {
       padding: 0;
@@ -41,6 +41,23 @@
     }
     p {
       margin-bottom: 24px;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .join-steps {
+    .step-item {
+      padding: 60px 30px 45px 30px;
+      .step-number {
+        font-size: 24px;
+      }
+      .step-title {
+        font-size: 36px;
+      }
+      ul li,
+      p {
+        font-size: 16px;
+      }
     }
   }
 }

@@ -126,7 +126,8 @@ h3 {
 }
 
 .section-hero {
-  height: 400px;
+  height: 28vw;
+  max-height: 400px;
   &.phase-1 {
     &:before {
       background-image: url(../assets/images/HOME_BOOST_CROWD.png);
@@ -185,5 +186,116 @@ h3 {
     color: $purpleLight;
     box-shadow: none;
     outline: none;
+  }
+}
+.visible-xs {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+  .visible-xs {
+    display: block !important;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+
+  .section-hero {
+    height: auto;
+    max-height: 100%;
+    .phase-number {
+      font-size: 24px;
+    }
+    .section-name {
+      font-size: 36px;
+    }
+  }
+  .hero-section-wrapper {
+    padding-bottom: 50px;
+  }
+  .hero-section-wrapper,
+  .section-wrapper {
+    position: relative;
+  }
+  .section-secondary {
+    position: relative;
+    z-index: 22;
+    padding: 40px 0 60px;
+    &.warning {
+      background: none;
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  .section-primary {
+    position: static;
+    padding-top: 80vw;
+    &:before,
+    &:after {
+      background-position: top center;
+    }
+
+    &:before {
+      width: 100%;
+      padding-bottom: 70vw;
+      bottom: auto;
+      background-size: cover;
+    }
+    &:after {
+      width: 100%;
+      top: 36vw;
+      background-size: 100% auto;
+      background-image: url(../assets/images/IMAGE_OVERLAY_ARROWS_M.svg);
+    }
+  }
+
+  .level-index {
+    flex: 0 1 50px;
+  }
+
+  .telegram-bot {
+    flex-direction: column;
+    margin-bottom: 60px;
+    font-size: 18px;
+    b {
+      display: block;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    .telegram-btn {
+      align-self: flex-end;
+      margin-top: 20px;
+      height: 34px;
+      font-size: 18px;
+      img {
+        height: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .section-secondary {
+    .section-content {
+      // max-width: 860px;
+    }
+  }
+  .section-hero {
+    .phase-number {
+      font-size: 30px;
+    }
+    .section-name {
+      font-size: 40px;
+    }
   }
 }
