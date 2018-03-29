@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private getRefToDisplay(innerWidth: number): string {
     if (innerWidth < 768) {
-      return this.refToDisplay || "firstRef";
+      return this.refToDisplay || "thirdRef";
     } else {
       return "";
     }
