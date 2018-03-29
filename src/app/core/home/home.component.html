@@ -5,7 +5,7 @@
         <a routerLink='/' routerLinkActive="active">Home</a>
       </li>
       <li>
-        <a routerLink="/join">Join</a>
+        <a routerLink="{{switchUrl}}">{{switchText}}</a>
       </li>
       <li>
         <a href="https://news.super.one" target="_blank">News</a>
@@ -177,7 +177,7 @@ via blockchain innovation.</h3>
         <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
       </div>
       <div class="col">
-        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
+        <app-join-group [hide]="hideOverlay" [whiteTitle]="true" (hideChange)="handleHidechange($event)"></app-join-group>
       </div>
     </div>
   </div>
@@ -195,7 +195,7 @@ via blockchain innovation.</h3>
             <a routerLink='/' routerLinkActive="active">Home</a>
           </li>
           <li>
-            <a routerLink="/join">Join</a>
+            <a routerLink="{{switchUrl}}">{{switchText}}</a>
           </li>
           <li>
             <a href="https://news.super.one/" target="_blank">News</a>
@@ -219,4 +219,5 @@ via blockchain innovation.</h3>
     <p class="copyright">© Super.One 2018</p>
   </div>
 </footer>
+
 <app-overlay [hide]="hideOverlay"></app-overlay>

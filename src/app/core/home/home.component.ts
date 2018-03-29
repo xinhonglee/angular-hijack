@@ -1,13 +1,13 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { debounce } from '../../shared/decorators/debounce';
-import { CurrencyService } from '../../shared/services/currency.service';
-import { LocalStorageService } from 'angular-2-local-storage';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { debounce } from "../../shared/decorators/debounce";
+import { CurrencyService } from "../../shared/services/currency.service";
+import { LocalStorageService } from "angular-2-local-storage";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public logoPath;
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public secondUsd = [];
   public thirdUsd = [];
 
-  public refToDisplay = '';
+  public refToDisplay = "";
   private interval = null;
 
   public telegramPath;
@@ -57,25 +57,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     private ref: ChangeDetectorRef,
     private localstorageService: LocalStorageService
   ) {
-    this.logoPath = 'assets/images/LOGO.svg';
-    this.trianglesPath = 'assets/images/TRIANGLES_HERO_IMAGE.png';
+    this.logoPath = "assets/images/LOGO.svg";
+    this.trianglesPath = "assets/images/TRIANGLES_HERO_IMAGE.png";
 
-    this.boostCrowd = 'assets/images/BOOST_CROWD.png';
-    this.boostGame = 'assets/images/BOOST_GAME.png';
-    this.boostRewards = 'assets/images/BOOST_REWARDS.png';
-    this.mBoostRewards = 'assets/images/BOOST_REWARDS_MOBILE.png';
+    this.boostCrowd = "assets/images/BOOST_CROWD.png";
+    this.boostGame = "assets/images/BOOST_GAME.png";
+    this.boostRewards = "assets/images/BOOST_REWARDS.png";
+    this.mBoostRewards = "assets/images/BOOST_REWARDS_MOBILE.png";
 
-    this.getReferred = 'assets/images/GET_REFERRED.png';
-    this.getRewards = 'assets/images/GET_REWARDS.png';
-    this.getSpots = 'assets/images/GET_SPOTS.png';
+    this.getReferred = "assets/images/GET_REFERRED.png";
+    this.getRewards = "assets/images/GET_REWARDS.png";
+    this.getSpots = "assets/images/GET_SPOTS.png";
 
-    this.boostPhases = 'assets/images/BOOST_PHASES.png';
-    this.mBoostPhases = 'assets/images/MOB_BOOST_PHASES.png';
-    this.mGetPhases = 'assets/images/MOB_GET_PHASES.png';
+    this.boostPhases = "assets/images/BOOST_PHASES.png";
+    this.mBoostPhases = "assets/images/MOB_BOOST_PHASES.png";
+    this.mGetPhases = "assets/images/MOB_GET_PHASES.png";
 
-    this.getPhases = 'assets/images/GET_PHASES.png';
+    this.getPhases = "assets/images/GET_PHASES.png";
 
-    this.telegramPath = 'assets/images/Telegram.png';
+    this.telegramPath = "assets/images/Telegram.png";
 
     this.innerHeight = window.screen.height;
     this.innerWidth = window.screen.width;
@@ -84,21 +84,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.levelText = this.getLevelText(this.innerWidth);
 
-    const firstTime = this.localstorageService.get('firstTime');
+    const firstTime = this.localstorageService.get("firstTime");
 
     if (!firstTime) {
-      localstorageService.remove('hasSpot');
-      localstorageService.add('firstTime', {});
+      localstorageService.remove("hasSpot");
+      localstorageService.add("firstTime", {});
     }
 
-    const hasSpot = localstorageService.get('hasSpot');
+    const hasSpot = localstorageService.get("hasSpot");
 
     if (hasSpot) {
-      this.switchUrl = '/account';
-      this.switchText = 'Account';
+      this.switchUrl = "/account";
+      this.switchText = "Account";
     } else {
-      this.switchUrl = '/join';
-      this.switchText = 'Join';
+      this.switchUrl = "/join";
+      this.switchText = "Join";
     }
   }
 
@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ref.detectChanges();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener("window:resize", ["$event"])
   @debounce()
   private onWindowResize(event) {
     const { innerWidth } = event.target;
@@ -122,17 +122,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private getLevelText(innerWidth) {
     if (innerWidth < 992) {
-      return 'Lvl';
+      return "Lvl";
     } else {
-      return 'Level';
+      return "Level";
     }
   }
 
   private getRefToDisplay(innerWidth: number): string {
     if (innerWidth < 768) {
-      return this.refToDisplay || 'firstRef';
+      return this.refToDisplay || "firstRef";
     } else {
-      return '';
+      return "";
     }
   }
 
