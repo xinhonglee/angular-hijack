@@ -1,8 +1,11 @@
-<nav class="nav-wrapper">
+<nav class="nav-wrapper static logo-right clearfix">
   <div class="container">
+    <div class="nav-img">
+      <img [src]="logoPath1" class="img-logo" alt="SuperOne logo"/>
+    </div>
     <ul class="nav-ul">
       <li>
-        <a routerLink='/'>Home</a>
+        <a routerLink='/' routerLinkActive="active">Home</a>
       </li>
       <li>
         <a routerLink="{{switchUrl}}" routerLinkActive="active">{{switchText}}</a>

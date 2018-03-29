@@ -8,6 +8,7 @@ import { LocalStorageService } from "angular-2-local-storage";
 })
 export class JoinComponent implements OnInit {
   public logoPath = "assets/images/LOGO.svg";
+  public logoPath1 = "assets/images/LOGO.png";
   public information = "More information";
 
   public switchUrl;

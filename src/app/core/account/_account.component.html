@@ -1,20 +1,21 @@
-<nav class="nav-wrapper static logo-left clearfix">
-  <div class="container">
+<nav class="container-fluid account-nav">
+  <div class="row justify-content-between">
     <div class="nav-img">
-      <img [src]="logoPath" class="img-logo" alt="SuperOne logo"/>
+      <img [src]="logoPath">
     </div>
-    <ul class="nav-ul">
+
+    <ul class="account-ul">
       <li>
-        <a routerLink='/' routerLinkActive="active">Home</a>
+        <a routerLink='/'>Home</a>
       </li>
       <li>
         <a routerLink="/account" routerLinkActive="active">Account</a>
       </li>
       <li>
-        <a href="https://news.super.one" target="_blank">News</a>
+        <a routerLink="/" href="https://news.super.one/" target="_blank">News</a>
       </li>
       <li>
-        <a href="https://news.super.one/help" target="_blank">Help</a>
+        <a routerLink="/" href="https://news.super.one/help/" target="_blank">Help</a>
       </li>
     </ul>
   </div>
@@ -140,19 +141,18 @@
 
   </section>
 </main>
-<footer class="page-footer m-0-footer">
-  <div class="container">
-    <div class="footer-data row">
-      <div class="col-7">
-        <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
-      </div>
-      <div class="col-2">
-        <ul class="footer-nav">
+<footer class="home-footer">
+  <div class="container d-flex flex-column">
+    <div class="row footer-data">
+      <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
+
+      <div class="links">
+        <ul class="footer-list">
           <li>
             <a routerLink='/' routerLinkActive="active">Home</a>
           </li>
           <li>
-            <a routerLink="{{switchUrl}}">{{switchText}}</a>
+            <a routerLink="/account" routerLinkActive="active">Account</a>
           </li>
           <li>
             <a href="https://news.super.one/" target="_blank">News</a>
@@ -161,19 +161,19 @@
             <a href="https://news.super.one/help/" target="_blank">Help</a>
           </li>
         </ul>
-      </div>
-      <div class="col-3">
-        <ul class="footer-privacy">
-          <li>
+        <ul class="footer-list">
+          <li class="secondary">
             <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
           </li>
-          <li>
+          <li class="secondary">
             <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
           </li>
         </ul>
       </div>
     </div>
-    <p class="copyright">© Super.One 2018</p>
+    <div class="row">
+      <p class="copyright">© Super.One 2018</p>
+    </div>
   </div>
 </footer>
 
