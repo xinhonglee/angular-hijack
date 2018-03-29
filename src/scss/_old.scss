@@ -31,23 +31,6 @@
   /*padding-bottom: 91px;*/
 }
 
-.telegram-button {
-  background-color: transparent;
-  height: 50px;
-  max-width: 175px;
-  border-radius: 4px;
-  border: solid 1px #908eff;
-
-  font-family: ProximaNova;
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #908eff;
-}
-
 .get-free-wrapper {
   display: flex;
   align-content: center;
@@ -541,12 +524,6 @@
   margin-bottom: 0;
 }
 
-.spots-management {
-  background-image: radial-gradient(circle at 52% 111%, #26005a, #0e0022);
-
-  padding-top: 90px;
-}
-
 .telegram-block {
   padding-top: 57px;
   margin-bottom: 82px;
@@ -947,9 +924,9 @@
     font-size: 18px;
   }
 
-  .account-stats-wrapper .stats-value {
-    font-size: 18px;
-  }
+  // .account-stats-wrapper .stats-value {
+  //   font-size: 18px;
+  // }
 
   .footer-list li {
     font-size: 18px;
@@ -1138,10 +1115,6 @@
   .content-title {
     font-size: 20px;
     margin-bottom: 12px;
-  }
-
-  .join-group .input-group-append .join-btn {
-    font-size: 18px;
   }
 
   .join-group .form-errors {

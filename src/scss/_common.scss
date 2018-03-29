@@ -53,6 +53,26 @@ p {
   }
 }
 
+.telegram-button {
+  background-color: transparent;
+  height: 50px;
+  max-width: 175px;
+  border-radius: 4px;
+  border: solid 1px #908eff;
+
+  font-family: ProximaNova;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  line-height: 48px;
+  letter-spacing: normal;
+  color: #908eff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 h2 {
   font-family: "AktivGrotesk";
   font-size: 36px;

@@ -21,14 +21,19 @@
 </nav>
 <!--<app-navigation></app-navigation>-->
 <main>
-  <section class="account-stats" *ngIf="accountStats.tokens_amount > 0 && spots">
+  <section class="account-stats" *ngIf="accountStats.tokens_amount > 0 && spots>
     <div class="container-fluid">
-      <div class="account-date">
-        <div class="row">
-          <p class="account-content">Wednesday, March 7, 2018</p>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="account-date">
+            <div class="row">
+              <p class="account-content">Wednesday, March 7, 2018</p>
+            </div>
+          </div>
         </div>
       </div>
-
+    </div>
+    <div class="container">
       <div class="row rewards-wrapper">
         <div class="col-md-6 col-12 stats-graph d-flex flex-column">
           <div class="chart-wrapper">
@@ -83,39 +88,41 @@
   </section>
   <section class="account-stats" *ngIf="accountStats.tokens_amount === 0 || !spots">
     <article class="container spots-container content">
-      <div class="container-fluid justify-content-center">
-        <div class="row loading-wrapper">
-          <app-loader></app-loader>
-        </div>
+      <div class="row loading-wrapper">
+        <app-loader></app-loader>
       </div>
     </article>
   </section>
 
-  <section class="spots-management">
+  <section class="spots-management account-management">
 
     <article class="container copy-container">
       <div class="row join-lead justify-content-center">
-        <h4 class="join-lead_title">Copy your referral address and start inviting</h4>
-        <div class="input-group join-group">
-          <input
-            class="form-control join-input"
-            placeholder="Your ETH address"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-            [value]="ethAddress"
-            readonly
-          >
-          <div class="input-group-append">
-            <button
-              class="btn join-btn"
-              type="button"
-              ngxClipboard
-              [cbContent]="ethAddress"
-              (cbOnSuccess)="onCopy()"
-              (cbOnError)="onCopy(false)"
+        <div class="col-12 col-md-8 justify-content-center">
+          <h4 class="join-lead_title copy-join-lead_title">
+            <strong>Copy</strong> your referral address and start inviting
+          </h4>
+          <div class="input-group join-group">
+            <input
+              class="form-control join-input"
+              placeholder="Your ETH address"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              [value]="ethAddress"
+              readonly
             >
-              {{ copyText }}
-            </button>
+            <div class="input-group-append">
+              <button
+                class="btn join-btn"
+                type="button"
+                ngxClipboard
+                [cbContent]="ethAddress"
+                (cbOnSuccess)="onCopy()"
+                (cbOnError)="onCopy(false)"
+              >
+                <strong>{{ copyText }}</strong>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -123,13 +130,15 @@
 
     <article class="telegram-block container">
       <div class="row align-items-center flex-column">
-        <h4 class="join-lead_title">Get free notifications of all your transactions</h4>
-        <a href="https://telegram.me/superone_bot" target="_blank">
-          <button class="telegram-button">
-            <img [src]="telegramPath" alt="">
+        <div class="col-12 col-md-8 justify-content-center text-right text-md-center">
+          <h4 class="join-lead_title text-left text-md-center">
+            <strong>GET FREE</strong> notifications of all your transactions from our Telegram bot
+          </h4>
+          <a href="https://telegram.me/superone_bot" class="btn telegram-button" target="_blank">
+            <img [src]="telegramPath" width="22" alt="">
             superone_bot
-          </button>
-        </a>
+          </a>
+        </div>
       </div>
     </article>
 

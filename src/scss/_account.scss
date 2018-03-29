@@ -1,0 +1,54 @@
+.spots-management {
+	background-color: #0e0022;
+	padding-top: 90px;
+}
+
+.join-lead_title {
+	&.copy-join-lead_title {
+		color: white;
+		text-align: center;
+	}
+}
+
+.account-management {
+	.join-lead_title {
+		max-width: 100%;
+		line-height: 1.42;
+	}
+	.form-control {
+		&.join-input {
+			height: 60px;
+			background-color: transparent;
+			font-size: 20px;
+			color: white;
+		}
+	}
+	.join-btn {
+		min-width: 144px;
+		font-size: 24px;
+		text-transform: uppercase;
+		color: white;
+		background-color: $purpleLighter;
+	}
+}
+
+@media (max-width: 768px) {
+	.account-management {
+		.join-lead_title {
+			font-size: 18px;
+			text-align: left;
+			strong {
+				display: block;
+				font-size: 24px;
+			}
+		}
+		.form-control.join-input {
+			font-size: 13px;
+			height: 45px;
+		}
+	}
+	.join-group .input-group-append .join-btn {
+		font-size: 18px;
+		height: 35px;
+	}
+}

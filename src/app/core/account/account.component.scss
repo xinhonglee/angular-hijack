@@ -42,7 +42,6 @@
   margin-right: 8px;
 }
 
-
 .chart-wrapper {
   max-height: 320px;
   max-width: 420px;
@@ -61,13 +60,11 @@
   border-radius: 8px;
 }
 
-
 @media (max-width: 768px) {
-
-  .container-fluid {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+  // .container-fluid {
+  //   padding-left: 32px;
+  //   padding-right: 32px;
+  // }
 
   .account-date {
     padding-left: 0;
@@ -94,10 +91,8 @@
     justify-content: space-around;
   }
 
-  .stats-graph {
-    padding-right: 0;
-    padding-left: 0;
-
+  .stats-title {
+    font-size: 18px;
   }
 
   .account-ul li {
@@ -112,7 +107,7 @@
   }
 
   .stats-graph {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .nav-img {
@@ -134,8 +129,11 @@
   }
 
   .stats-data {
-    padding-left: 0;
+    padding-left: 15px;
+    padding-top: 40px;
     border-left: none;
+    border-top: 1px solid rgba(#ffffff, 0.2);
+    margin-bottom: 30px;
   }
 
   .telegram-button {
