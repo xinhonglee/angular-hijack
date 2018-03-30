@@ -2,7 +2,13 @@
   position: absolute;
   width: 100%;
   z-index: 10;
-  padding: 25px 0;
+  padding: 0;
+  .container {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &.static {
     position: relative;
     background: #26005a;
@@ -13,24 +19,22 @@
   }
   &.logo-left {
     .nav-img {
-      float: left;
+      order: 1;
       padding-top: 0;
       padding-bottom: 0;
     }
     .nav-ul {
-      float: right;
-      padding-top: 7px;
+      order: 2;
     }
   }
   &.logo-right {
     .nav-img {
-      float: right;
+      order: 2;
       padding-top: 0;
       padding-bottom: 0;
     }
     .nav-ul {
-      float: left;
-      padding-top: 7px;
+      order: 1;
     }
   }
   .nav-ul {
