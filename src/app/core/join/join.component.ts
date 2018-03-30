@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { LocalStorageService } from "angular-2-local-storage";
+import { ChangeDetectorRef } from "@angular/core";
 
 @Component({
   selector: "app-join",
@@ -19,9 +20,11 @@ export class JoinComponent implements OnInit {
   public paySpot = "assets/images/PAY_YOUR_SPOT.png";
   public friends = "assets/images/REFER_FRIENDS.png";
 
+  public hideOverlay: boolean;
+
   public isMobileSelected;
 
-  constructor(private localstorageService: LocalStorageService) {
+  constructor(private localstorageService: LocalStorageService, private ref: ChangeDetectorRef) {
     this.isMobileSelected = true;
     const hasSpot = localstorageService.get("hasSpot");
 
@@ -36,6 +39,11 @@ export class JoinComponent implements OnInit {
 
   onTextToggle(selected: boolean) {
     this.isMobileSelected = selected;
+  }
+
+  handleHidechange(e) {
+    this.hideOverlay = !this.hideOverlay;
+    this.ref.detectChanges();
   }
 
   ngOnInit() {}
