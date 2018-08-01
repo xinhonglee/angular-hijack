@@ -1,10 +1,12 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { SpotsData } from "../../shared/interfaces/spots/spotsData.interface";
-import { AccountStats } from "../../shared/interfaces/account/accountStats.interface";
-import { CurrencyService } from "../../shared/services/currency.service";
-import { Web3Service } from "../../shared/services/web3.service";
-import { LocalStorageService } from "angular-2-local-storage";
+import {ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild} from "@angular/core";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {SpotsData} from "../../shared/interfaces/spots/spotsData.interface";
+import {AccountStats} from "../../shared/interfaces/account/accountStats.interface";
+import {CurrencyService} from "../../shared/services/currency.service";
+import {Web3Service} from "../../shared/services/web3.service";
+import {LocalStorageService} from "angular-2-local-storage";
+import {BsModalRef, BsModalService} from "ngx-bootstrap";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-account",
@@ -14,6 +16,7 @@ import { LocalStorageService } from "angular-2-local-storage";
 export class AccountComponent implements OnInit, OnDestroy {
   public logoPath;
   public telegramPath;
+  public ethBtn;
 
   // options
   showXAxis = true;
@@ -27,6 +30,10 @@ export class AccountComponent implements OnInit, OnDestroy {
 
   public switchUrl;
   public switchText;
+
+  public connectionsCount: number = 0;
+  public activeCount: number = 0;
+  public allowedUnilevel: number = 0;
 
   colorScheme = {
     domain: ["#6b00ff"]
@@ -56,40 +63,74 @@ export class AccountComponent implements OnInit, OnDestroy {
 
   private ether;
   private interval;
+  private sockInterval;
   private refreshSubscription;
 
-  constructor(
-    private httpClient: HttpClient,
-    private currencyService: CurrencyService,
-    private web3Service: Web3Service,
-    private ref: ChangeDetectorRef,
-    private localstorageService: LocalStorageService
-  ) {
+  private weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  private monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  public dateString;
+  public showText = true;
+
+  private accountChangedSubscription;
+
+  constructor(private httpClient: HttpClient,
+              private currencyService: CurrencyService,
+              private web3Service: Web3Service,
+              private ref: ChangeDetectorRef,
+              private localstorageService: LocalStorageService,
+              private router: Router) {
     this.logoPath = "assets/images/LOGO.png";
     this.telegramPath = "assets/images/Telegram.png";
+    this.ethBtn = "assets/images/ETH_btn.png";
     this.initAccountStats();
+    this.ngOnInit();
 
-    const hasSpot = localstorageService.get("hasSpot");
+    const d = new Date();
 
-    if (hasSpot) {
-      this.switchUrl = "/account";
-      this.switchText = "Account";
-    } else {
-      this.switchUrl = "/join";
-      this.switchText = "Join";
-    }
+    this.dateString =
+      `${this.weekday[d.getDay()]}, ${this.monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+
+
+    this.web3Service.onWeb3Bootstraped
+      .then(async () => {
+
+        let exists = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
+        if (exists['data'].exists) {
+          this.switchUrl = "/account";
+          this.switchText = "Account";
+        } else {
+          this.switchUrl = "/join";
+          this.switchText = "Join";
+        }
+
+      });
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
+
     this.hideOverlay = true;
     this.web3Service.getCoinbase().then(async address => {
       await this.getSpots(address);
       await this.getAccountStats(address);
+      this.getConnections(address);
     });
     this.getPriceUsd();
     this.interval = setInterval(() => {
       this.getPriceUsd();
     }, 5000);
+
+
+    this.sockInterval = setInterval(() => {
+      if (this.web3Service.coinbase) {
+        this.getSpots(this.web3Service.coinbase);
+        this.getAccountStats(this.web3Service.coinbase);
+      }
+    }, 360 * 100);
+
     this.refreshSubscription = this.web3Service.dataRefresh().subscribe(async (addresses: any[]) => {
       console.log("addresses to refresh", addresses);
       const address = this.web3Service.coinbase;
@@ -101,10 +142,24 @@ export class AccountComponent implements OnInit, OnDestroy {
         this.getAccountStats(address);
       }
     });
+
+    this.accountChangedSubscription = this.web3Service.onWeb3AccountChange.subscribe(async (changed) => {
+      if (changed) {
+        const exits = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
+        if(!exits['data'].exists) {
+          this.router.navigate(['/join']);
+        } else {
+          this.getSpots(this.web3Service.coinbase);
+          this.getAccountStats(this.web3Service.coinbase);
+        }
+      }
+    })
+
   }
 
   ngOnDestroy() {
     clearInterval(this.interval);
+    this.accountChangedSubscription.unsubscribe();
   }
 
   get ethAddress(): string {
@@ -128,7 +183,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   handleHidechange(e) {
-    console.log("HandleChange");
     this.hideOverlay = !this.hideOverlay;
     this.ref.detectChanges();
   }
@@ -141,7 +195,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     params = params.append("limit", limit.toString());
 
     this.httpClient
-      .get(`/api/${address}/spots`, { params: params })
+      .get(`/api/${address}/spots`, {params: params})
       .subscribe((response: { type: string; data: SpotsData }) => {
         if (response.type === "success") {
           this.spots = response.data;
@@ -153,7 +207,7 @@ export class AccountComponent implements OnInit, OnDestroy {
 
           this.spots.free_spots = freeSlots;
 
-          this.referralSpots = `${this.spots.total_spots} (${this.spots.free_spots} slots)`;
+          this.referralSpots = `${this.spots.total_spots} (${this.spots.free_spots} free slots)`;
           this.ref.detectChanges();
         } else {
           console.log("error");
@@ -177,6 +231,18 @@ export class AccountComponent implements OnInit, OnDestroy {
     });
   }
 
+  private getConnections(address): void {
+    this.httpClient.get(`/api/${address}/unilevel-data`).subscribe((result: {err: string, data: any}) => {
+      if(!result.err) {
+        this.connectionsCount = result.data.children.length;
+        this.activeCount = result.data.activeCount;
+        this.allowedUnilevel = result.data.currentDepth;
+      } else {
+        console.error('Error while fetching connections data!');
+      }
+  })
+}
+
   private initAccountStats(accountStats?: AccountStats): void {
     this.accountStats = this.accountStatsDefault;
 
@@ -184,7 +250,11 @@ export class AccountComponent implements OnInit, OnDestroy {
       this.accountStats = Object.assign({}, this.accountStats, accountStats);
     }
 
-    const { graph, total_downline, tokens_amount } = this.accountStats;
+    if (accountStats && this.accountStats.tokens_amount === 0) {
+      this.showText = false;
+    }
+
+    const {graph, total_downline, tokens_amount} = this.accountStats;
 
     this.graph = graph.map(item => {
       return {
@@ -206,7 +276,12 @@ export class AccountComponent implements OnInit, OnDestroy {
       return "";
     }
 
-    return `ETH ${eth} (USD ${this.currencyService.calculateUsd(this.ether, [eth])[0]})`;
+    let curr: number = this.currencyService.calculateUsd(this.ether, [eth])[0];
+
+    let currstr = curr.toFixed(2)
+      .replace(".", ",");
+
+    return `ETH ${eth} (USD ${currstr})`;
   }
 
   private getTokenPriceString(amount, price) {

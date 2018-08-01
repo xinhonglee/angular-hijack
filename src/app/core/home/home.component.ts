@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from "@angular/core";
+import {ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { debounce } from "../../shared/decorators/debounce";
 import { CurrencyService } from "../../shared/services/currency.service";
 import { LocalStorageService } from "angular-2-local-storage";
+import {Web3Service} from "../../shared/services/web3.service";
 
 @Component({
   selector: "app-home",
@@ -51,11 +52,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public levelText;
 
+
+  public conceptOverlayVisible = true;
+  public rewardsOverlayVisible = true;
+
+  private accountChangedSubscription;
+
+  @ViewChild('concept') conceptVideo: any;
+  @ViewChild('rewards') rewardsVideo: any;
+
+  onOverlayClick(video) {
+    if(video === 'concept') {
+      this.conceptOverlayVisible = false;
+      this.conceptVideo.nativeElement.play();
+    } else if(video === 'rewards') {
+      this.rewardsOverlayVisible = false;
+      this.rewardsVideo.nativeElement.play();
+    }
+  }
+
   constructor(
     private httpClient: HttpClient,
     private currencyService: CurrencyService,
     private ref: ChangeDetectorRef,
-    private localstorageService: LocalStorageService
+    private localstorageService: LocalStorageService,
+    private web3Service: Web3Service
   ) {
     this.logoPath = "assets/images/LOGO.svg";
     this.trianglesPath = "assets/images/TRIANGLES_HERO_IMAGE.png";
@@ -90,17 +111,51 @@ export class HomeComponent implements OnInit, OnDestroy {
       localstorageService.remove("hasSpot");
       localstorageService.add("firstTime", {});
     }
-
-    const hasSpot = localstorageService.get("hasSpot");
-
-    if (hasSpot) {
-      this.switchUrl = "/account";
-      this.switchText = "Account";
-    } else {
-      this.switchUrl = "/join";
-      this.switchText = "Join";
-    }
   }
+
+  ngOnInit() {
+    window.scrollTo(0, 0);
+
+    this.hideOverlay = true;
+
+    this.levels = Array(10)
+      .fill(1, 0, 10)
+      .map((x, i) => i);
+    this.fetchCurrency();
+    this.interval = setInterval(this.fetchCurrency(), 5000);
+
+    this.web3Service.onWeb3Bootstraped
+      .then(async () => {
+        let exists = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
+
+        if (exists['data'].exists) {
+          this.switchUrl = "/account";
+          this.switchText = "Account";
+        } else {
+          this.switchUrl = "/join";
+          this.switchText = "Join";
+        }
+      });
+
+    this.accountChangedSubscription = this.web3Service.onWeb3AccountChange.subscribe(async (changed) => {
+      if(changed) {
+        let exists = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
+
+        if (exists['data'].exists) {
+          this.switchUrl = "/account";
+          this.switchText = "Account";
+        } else {
+          this.switchUrl = "/join";
+          this.switchText = "Join";
+        }
+      }
+    })
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
+  }
+
 
   public setRefToDisplay(refToDisplay: string): void {
     this.refToDisplay = refToDisplay;
@@ -142,19 +197,5 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.secondUsd = this.currencyService.calculateUsd(ether, this.secondRef);
       this.thirdUsd = this.currencyService.calculateUsd(ether, this.thirdRef);
     });
-  }
-
-  ngOnInit() {
-    this.hideOverlay = true;
-
-    this.levels = Array(10)
-      .fill(1, 0, 10)
-      .map((x, i) => i);
-    this.fetchCurrency();
-    this.interval = setInterval(this.fetchCurrency(), 5000);
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.interval);
   }
 }

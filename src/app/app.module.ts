@@ -8,6 +8,7 @@ import {LocalStorageModule} from "angular-2-local-storage";
 import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HashLocationStrategy} from "@angular/common";
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {HashLocationStrategy} from "@angular/common";
     AppRoutingModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    DeviceDetectorModule.forRoot(),
     LocalStorageModule.withConfig({
       prefix: 'matrix',
       storageType: 'localStorage'

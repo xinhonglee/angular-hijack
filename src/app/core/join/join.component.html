@@ -1,5 +1,5 @@
-<nav class="nav-wrapper static logo-right clearfix">
-  <div class="container">
+<nav class="nav-wrapper">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
     <div class="nav-img">
       <img [src]="logoPath1" class="img-logo" alt="SuperOne logo"/>
     </div>
@@ -11,109 +11,157 @@
         <a routerLink="{{switchUrl}}" routerLinkActive="active">{{switchText}}</a>
       </li>
       <li>
-        <a href="https://news.super.one" target="_blank">News</a>
+        <a href="https://about.super.one" target="_blank">About</a>
       </li>
       <li>
-        <a href="https://news.super.one/help" target="_blank">Help</a>
+        <a href="https://about.super.one/help" target="_blank">Help</a>
       </li>
     </ul>
   </div>
 </nav>
-<div class="hero-section-wrapper">
-  <section class="section-primary section-hero join-hero">
-    <div class="container">
-      <div class="section-name">Join now</div>
-    </div>
-  </section>
-</div>
-<div class="join-bar">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col">
-        <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
-      </div>
-      <div class="col">
-        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
+
+<section class="video-section join-video">
+  <div class="container video-container pl-0 pr-0">
+    <div class="section-content video-content">
+      <div class='embed-container'>
+        <div class="video-overlay join-overlay" *ngIf="conceptOverlayVisible" (click)="onOverlayClick('concept')">
+          <img class="play-btn" src="../../../assets/images/button.png" alt="play button video">
+        </div>
+        <video width="900" height="450" controls #concept>
+          <source src="https://s3-eu-west-1.amazonaws.com/super-one/super_one_help_draft1.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
-</div>
-<section class="section-secondary">
-  <div class="container">
-    <div class="join-steps">
-      <div class="step-item">
-        <div class="step-number">Step 1</div>
-        <div class="step-title">Prepare wallet</div>
-        <p>You need a compatible Ether wallet ready with at least ETH 0.1 + transaction fees available.</p>
-        <p>We recommend at least ETH 0.0002 for a fast transfer transaction fee (10 GWEI). That means your Metamask wallet should have at least ETH 1.0002 available</p>
-        <button class="btn btn-strok" (click)="onTextToggle(false)" [ngClass]="{'selected-button': isMobileSelected, 'unselected-button': !isMobileSelected}">Desktop Wallet</button>
-        <ul>
-          <li>Install <b>Metamask</b> for Google Chrome</li>
-          <li>Buy <b>ETH</b> via an exchange like Coinbase</li>
-          <li><b>Transfer</b> funds to your Metamask account</li>
-          <li>
-            <a href="https://news.super.one/help/" target="_blank">See Help for more information</a>
-          </li>
-        </ul>
-      </div>
-      <div class="step-item">
-        <div class="step-number">Step 2</div>
-        <div class="step-title">Pay your spot</div>
-        <ul>
-          <li>Go to <b>super.one</b> in your wallet browser</li>
-          <li>Insert the <b>referral address</b></li>
-          <li>Pay <b>ETH 0.1</b> to SuperOne</li>
-          <li>
-            <a href="https://news.super.one/help/" target="_blank">See Help for more information</a>
-          </li>
-        </ul>
-      </div>
-      <div class="step-item">
-        <div class="step-number">Step 3</div>
-        <div class="step-title">Refer friends</div>
-        <ul>
-          <li>Await transaction <b>confirmation</b></li>
-          <li>Go to your <b>account</b></li>
-          <li><b>Refer</b> others with your address</li>
-          <li>
-            <a href="https://news.super.one/help/" target="_blank">See Help for more information</a>
-          </li>
-        </ul>
-      </div>
-      <div class="step-item">
-        <div class="step-number">Optional</div>
-        <div class="step-title">Start free notifications</div>
-        <ul>
-          <li>Install <b>Telegram</b> Messenger</li>
-          <li>Search for <b>SuperOne_bot</b></li>
-          <li>Copy and paste your <b>ETH address</b></li>
-          <li>
-            <a href="https://news.super.one/help/" target="_blank">See Help for more information</a>
-          </li>
-        </ul>
+  <div class="join-bar container hidden-xs-down">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
+        </div>
+        <div class="col">
+          <app-join-group [hide]="hideOverlay" [whiteTitle]="false" [isActive]="isBuyActive" (hideChange)="handleHidechange($event)"></app-join-group>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<div class="join-bar visible-xs">
+<section class="section-secondary">
+  <div class="container">
+    <div class="row">
+      <p class="video-title">How to join?</p>
+    </div>
+    <div class="row">
+      <div class="join-steps col-12 col-md-8 col-lg-8">
+        <div class="step-item d-flex">
+          <div class="col-3 pl-0 pr-0 col-md-2 col-lg-2">
+            <img src="./../../../assets/images/1.png" alt="">
+          </div>
+          <div class="step-info col-9 col-md-10 col-lg-10">
+            <div class="step-number">Step 1</div>
+            <div class="step-title">Prepare wallet</div>
+
+            <p>You need a compatible Ether wallet ready with at least ETH 0.1 + transaction fees available.</p>
+            <p>Standard transaction fee is ETH 0.0055 (100 GWEI). That means your Metamask wallet should have at least ETH 0.1055 available.</p>
+            <ul>
+              <li>Install <b>Metamask</b> for Google Chrome</li>
+              <li>Buy <b>ETH</b> via an exchange like Coinbase</li>
+              <li><b>Transfer</b> funds to your Metamask account</li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="step-item d-flex">
+          <div class="col-3 pl-0 pr-0 col-md-2 col-lg-2">
+            <img src="./../../../assets/images/2.png" alt="">
+          </div>
+          <div class="step-info col-9 col-md-10 col-lg-10">
+            <div class="step-number">Step 2</div>
+            <div class="step-title">Pay your first spot</div>
+            <ul>
+              <li>Go to <b>super.one</b> in your wallet browser</li>
+              <li>Insert the <b>referral address</b></li>
+              <li>Pay <b>ETH 0.1</b> to SuperOne</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-item d-flex">
+          <div class="col-3 pl-0 pr-0 col-md-2 col-lg-2">
+            <img src="./../../../assets/images/3.png" alt="">
+          </div>
+          <div class="step-info col-9 col-md-10 col-lg-10">
+            <div class="step-number">Optional</div>
+            <div class="step-title">Buy more spots</div>
+            <ul>
+              <li>With your <b>MetaMask unlocked</b></li>
+              <li>Go to <b>Account</b> page</li>
+              <li>Use <b>BUY NEW SPOTS</b> button</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-item d-flex">
+          <div class="col-3 pl-0 pr-0 col-md-2 col-lg-2">
+            <img src="./../../../assets/images/4.png" alt="">
+          </div>
+          <div class="step-info col-9 col-md-10 col-lg-10">
+            <div class="step-number">Optional</div>
+            <div class="step-title">Refer friends</div>
+            <ul>
+              <li>Await transaction <b>confirmation</b></li>
+              <li>Go to your <b>account</b></li>
+              <li><b>Refer</b> others with your address</li>
+            </ul>
+          </div>
+        </div>
+        <div class="step-item d-flex">
+          <div class="col-3 pl-0 pr-0 col-md-2 col-lg-2">
+            <img src="./../../../assets/images/5.png" alt="">
+          </div>
+          <div class="step-info col-9 col-md-10 col-lg-10">
+            <div class="step-number">Optional</div>
+            <div class="step-title">Start free notifications</div>
+            <ul>
+              <li>Install <b>Telegram</b> Messenger</li>
+              <li>Search for <b>SuperOne_bot</b></li>
+              <li>Copy and paste your <b>ETH address</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a href="https://about.super.one/help/" target="_blank" class="col-12 col-md-4 col-lg-4 pl-0 pr-0">
+        <div class="block_disclaimer">
+          <div class="dis1">
+            <div class="dis2">
+              <div class="dis3">
+                <h2><i class="far fa-question-circle"></i> Need help?</h2>
+                <p>Please check out our detailed help section here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<div class="join-bar container">
   <div class="container">
     <div class="row align-items-center">
       <div class="col">
         <h4><b>Join now!</b> Simply paste your referral’s invite ETH address:</h4>
       </div>
       <div class="col">
-        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" (hideChange)="handleHidechange($event)"></app-join-group>
+        <app-join-group [hide]="hideOverlay" [whiteTitle]="false" [isActive]="false" (hideChange)="handleHidechange($event)"></app-join-group>
       </div>
     </div>
   </div>
 </div>
-<div class="hero-section-wrapper">
-  <section class="section-primary section-hero join-future">
-    <div class="container">
-      <div class="section-name">The future today!</div>
-    </div>
-  </section>
-</div>
+<!--<div class="hero-section-wrapper">-->
+  <!--<section class="section-primary section-hero join-future">-->
+    <!--<div class="container">-->
+      <!--<div class="section-name">The future today!</div>-->
+    <!--</div>-->
+  <!--</section>-->
+<!--</div>-->
 <footer class="page-footer">
   <div class="container">
     <div class="footer-data row">
@@ -123,26 +171,26 @@
       <div class="col-2">
         <ul class="footer-nav">
           <li>
-            <a routerLink='/'>Home</a>
+            <a routerLink='/'><b>Home</b></a>
           </li>
           <li>
-            <a routerLink="{{switchUrl}}" routerLinkActive="active">{{switchText}}</a>
+            <a routerLink="{{switchUrl}}" routerLinkActive="active"><b>{{switchText}}</b></a>
           </li>
           <li>
-            <a href="https://news.super.one/" target="_blank">News</a>
+            <a href="https://about.super.one/" target="_blank"><b>About</b></a>
           </li>
           <li>
-            <a href="https://news.super.one/help/" target="_blank">Help</a>
+            <a href="https://about.super.one/help/" target="_blank"><b>Help</b></a>
           </li>
         </ul>
       </div>
       <div class="col-3">
         <ul class="footer-privacy">
           <li>
-            <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
+            <a href="https://about.super.one/terms-of-service/" target="_blank">Terms of Use</a>
           </li>
           <li>
-            <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
+            <a href="https://about.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
           </li>
         </ul>
       </div>
@@ -150,3 +198,40 @@
     <p class="copyright">© Super.One 2018</p>
   </div>
 </footer>
+
+<ng-template #nommTemplate>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">You need MetaMask installed. <br> Please install. <br> (Desktop only, not mobile)</h2>
+
+    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" class="btn btn-metamask">
+      <i class="fab fa-chrome"></i>
+       Install MetaMask
+    </a>
+
+  </div>
+</ng-template>
+
+<ng-template #unlockmmTemplate>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <h2 class="modal-text text-center">You've metamask installed, <br> but it needs to be unlocked.</h2>
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> to unlock and refresh page</p>
+
+  </div>
+</ng-template>

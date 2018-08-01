@@ -1,5 +1,9 @@
 .spots-container {
   margin-bottom: 67px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
 }
 
 .spots-title {
@@ -13,13 +17,19 @@
   font: normal 20px / 1 ProximaNova;
   justify-content: space-between;
   margin: 5px 0 20px;
-  .spots-buy-new {
-    max-width: auto;
-    min-width: 300px;
-    height: 60px;
-  }
+
 }
 
+.spots-buy-new {
+  //max-width: auto;
+  min-width: 300px;
+  height: 60px;
+  margin-top: 20px;
+  display: block;
+  align-self: flex-end;
+
+  margin-right: 68px;
+}
 .spots-info .total {
   font-size: 36px;
   font-weight: bold;
@@ -106,7 +116,11 @@
   width: 100%;
 }
 
-.spots-btn:hover {
+.spots-btn:hover:not([disabled]) {
+  background: #350080;
+}
+
+.spots-btn:disabled {
   background: #350080;
 }
 
@@ -193,12 +207,35 @@
   }
 }
 
+.success-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  flex-flow: column
+}
+
+.success-dialog h2 {
+  margin: 120px 0;
+}
 @media (max-width: 767px) {
   .spots-header {
     .spots-buy-new {
       min-width: 0;
       height: 35px;
       font-size: 18px !important;
+      margin-right: 50px;
+    }
+  }
+  .success-dialog h2 {
+    margin: 50px 0;
+  }
+}
+
+@media (max-width: 367px) {
+  .spots-header {
+    .spots-buy-new {
+      margin-right: 42px;
     }
   }
 }

@@ -11,31 +11,31 @@ import { ChangeDetectorRef } from "@angular/core"
   styleUrls: ["./buy-spot.component.scss"]
 })
 export class BuySpotComponent implements OnInit {
-  public transactionUrl: string
+  public transactionUrl: string;
 
-  public buyForm: FormGroup
-  private buyObject: BuySpotRequest
+  public buyForm: FormGroup;
+  private buyObject: BuySpotRequest;
 
   constructor(private web3Service: Web3Service, private ref: ChangeDetectorRef) {
-    this.buyObject = new BuySpotRequest()
-    this.buyObject.parent = parent ? parent["address"] : ""
+    this.buyObject = new BuySpotRequest();
+    this.buyObject.parent = parent ? parent["address"] : "";
   }
 
   get isMetamaskConnected(): boolean {
-    return this.web3Service.isMetamaskConnected
+    return this.web3Service.isMetamaskConnected;
   }
 
   get isMetamaskUnlocked(): boolean {
-    return this.web3Service.isMetamaskUnlocked
+    return this.web3Service.isMetamaskUnlocked;
   }
 
   isEthAddress() {
-    let web3Service = this.web3Service
+    let web3Service = this.web3Service;
 
     return (input: FormControl) => {
-      let isAddressValid = false
+      let isAddressValid = false;
       if (web3Service) {
-        isAddressValid = web3Service.isEthAddress(input.value)
+        isAddressValid = web3Service.isEthAddress(input.value);
       }
 
       return isAddressValid
@@ -53,13 +53,13 @@ export class BuySpotComponent implements OnInit {
   }
 
   onSend(transactionUrl) {
-    this.transactionUrl = transactionUrl
-    this.ref.detectChanges()
+    this.transactionUrl = transactionUrl;
+    this.ref.detectChanges();
   }
 
   onSubmit() {
     if (this.buyForm.valid) {
-      this.web3Service.onBuySubmit(this.buyForm.value.parent, this.onSend)
+      this.web3Service.onBuySubmit(this.buyForm.value.parent, this.onSend);
     }
   }
 }

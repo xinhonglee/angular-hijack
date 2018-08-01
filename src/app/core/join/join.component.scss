@@ -1,17 +1,80 @@
 @import "~scss/variables";
+
+.block_disclaimer {
+  padding-top: 70px;
+  cursor: pointer;
+
+  .dis1 {
+    border-radius: 10px;
+    //border: solid 2px red;
+
+    border: solid 1px transparent;
+    background-image: linear-gradient(#0e0022, #0e0022), linear-gradient(to left, #9e1ed0, #23d1f5);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+
+  }
+
+  .dis2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    border: solid 1px transparent;
+    background-image: linear-gradient(#0e0022, #0e0022), linear-gradient(to left, #9e1ed0, #23d1f5);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+  }
+
+  .dis3 {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 1.47;
+    color: #9c80ff;
+  }
+
+  p {
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+  }
+}
+
 .join-steps {
+  padding-left: 0;
+  padding-right: 0;
+
+  img {
+    width: 100%;
+  }
+
   .step-item {
     margin: auto;
     max-width: 945px;
-    padding: 70px 80px 70px 90px;
-    background-image: linear-gradient(-180deg, rgba(#6b00ff, 0.5) 0%, rgba(#4d04b0, 0.5) 100%);
-    box-shadow: inset 1000px 1000px 0 rgba(0, 0, 0, 0.4);
+    padding: 70px 0px 35px 0px;
+
+    .step-info {
+      padding-left: 40px;
+    }
+
     border-radius: 8px;
     + .step-item {
       margin-top: 40px;
     }
     .step-number {
-      font-size: 36px;
+      font-size: 30px;
       font-weight: bold;
       line-height: 1.15;
       color: $purpleLight;
@@ -20,7 +83,7 @@
       font-family: "AktivGrotesk";
       line-height: 1.15;
       font-weight: bold;
-      font-size: 48px;
+      font-size: 40px;
       margin-bottom: 20px;
     }
     .btn {
@@ -43,12 +106,45 @@
       margin-bottom: 24px;
     }
   }
+
+  @media screen and (max-width: 560px) {
+    .join-steps {
+      .step-item {
+        padding: 60px 30px 45px 30px;
+        .step-number {
+          font-size: 24px;
+        }
+        .step-title {
+          font-size: 36px;
+        }
+        ul li,
+        p {
+          font-size: 16px;
+        }
+      }
+
+      .step-info {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+.help-link {
+  padding-top: 25px;
 }
 
 .nav-img img {
   height: 35px;
   width: auto;
 }
+
+@media screen and (max-width: 720px) {
+  .img-logo {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .join-steps {
     .step-item {

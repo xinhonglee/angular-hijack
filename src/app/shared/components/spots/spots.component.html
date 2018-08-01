@@ -1,57 +1,135 @@
 <article class="container spots-container content" *ngIf="spots">
-  <div class="row justify-content-center">
-    <div class="col-12- col-md-10">
-      <div class="spots-title">
-        Your spots
-      </div>
-      <div class="spots-header">
-        <div class="spots-info">
-          <span class="total">
-           <strong class="d-none d-md-inline">Total</strong> {{ totalSpots }}
-          </span>
-          <span class="free">
-            {{ freeSpots }}
-          </span>
-        </div>
-        <button class="spots-btn spots-buy-new" (click)="buyNewSpots()">
-          Buy new spots
-        </button>
-        <!--<div class="spots-pagination">
-          <span class="range"><1-30</span>
-          <span class="range current-range">31-60</span>
-          <span class="range">61-90></span>
-        </div>-->
-      </div>
+  <div class="spots-title">
+    Your spots
+  </div>
+  <div class="spots-header">
+    <div class="spots-info">
+      <span class="total">
+        {{ totalSpots }}
+      </span>
+      <span class="free">
+        {{ freeSpots }}
+      </span>
+    </div>
+    <button class="spots-btn spots-buy-new pull-right" [disabled]="spotsDisabled" (click)="buyNewSpots()">
+      Buy new spots
+    </button>
+  </div>
 
-      <div class="spots-list">
-        <div class="spot" *ngFor="let spot of spotsToDisplay; let i = index">
-          <div class="spot-id">
-            #{{ i + 1 }}
-          </div>
-          <div class="spot-blocks-wrapper">
-            <div
-              class="spot-block"
-              *ngFor="let n of 3 | times"
-              [class.active]="n <= spot.comission_tier_id"
-            ></div>
-          </div>
-          <div class="spot-percent">
-            {{ getComissionPercent(spot.comission_tier_id) }}
-          </div>
-        </div>
+  <div class="spots-list">
+    <div class="spot" *ngFor="let spot of spotsToDisplay; let i = index">
+      <div class="spot-id">
+        #{{ i + 1 }}
       </div>
-      <button
-        class="spots-btn spots-load-more"
-        (click)="loadMoreSpots()"
-        *ngIf="spotsToDisplay.length && spotsToDisplay.length < spots.spots.length"
-      >
-        Load more
-      </button>
+      <div class="spot-blocks-wrapper">
+        <div
+          class="spot-block"
+          *ngFor="let n of 3 | times"
+          [class.active]="n <= spot.comission_tier_id"
+        ></div>
+      </div>
+      <div class="spot-percent">
+        {{ getComissionPercent(spot.comission_tier_id) }}
+      </div>
+    </div>
+  </div>
+
+</article>
+<article class="container spots-container content" *ngIf="!spots">
+  <div class="container-fluid justify-content-center">
+    <div class="row loading-wrapper">
+      <app-loader></app-loader>
     </div>
   </div>
 </article>
-<article class="container spots-container content justify-content-center" *ngIf="!spots">
-  <div class="row loading-wrapper">
-    <app-loader></app-loader>
+
+<ng-template #nommTemplate>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-</article>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">You need MetaMask installed. <br> Please install. <br> (Desktop only, not mobile) </h2>
+
+    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" class="btn btn-metamask">
+      <i class="fab fa-chrome"></i>
+      Install MetaMask
+    </a>
+
+  </div>
+</ng-template>
+
+<ng-template #unlockmmTemplate>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <h2 class="modal-text text-center">You've metamask installed, <br> but it needs to be unlocked.</h2>
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> to unlock and refresh page</p>
+
+  </div>
+</ng-template>
+
+<ng-template #startMine>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">
+      We`ll now start to mine your spot on blockchain. <br>
+      Please now <b>CONFIRM</b> your transaction in MetaMask.
+    </h2>
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> if not open automatically</p>
+
+    <button class="btn confirm-btn" (click)="modalRef.hide()">
+      Yes, transaction <b>CONFIRMED</b>
+    </button>
+
+  </div>
+</ng-template>
+
+<ng-template #signTransaction>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">
+      We've successfully mined your spot on blockchain.<br>
+      Please now <b>Sign</b> your transaction in MetaMask.
+    </h2>
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> if not open automatically</p>
+
+    <button class="btn confirm-btn" (click)="modalRef.hide()">
+      Yes, transaction <b>SIGNED</b>
+    </button>
+
+  </div>
+</ng-template><ng-template #purchaseSuccess>
+  <div class="modal-body">
+
+    <div class="success-dialog">
+      <img [src]="so_logo" class="mm-logo" alt="">
+
+      <h2 class="modal-text text-center">
+        You've successfully submitted your transaction.
+      </h2>
+
+      <button class="btn confirm-btn" (click)="modalRef.hide()">
+        <b>Close</b>
+      </button>
+    </div>
+
+  </div>
+</ng-template>

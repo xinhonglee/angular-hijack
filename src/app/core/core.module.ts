@@ -11,8 +11,7 @@ import {NgxChartsModule} from "@swimlane/ngx-charts";
 import {SharedModule} from "../shared/shared.module";
 import { ClipboardModule } from 'ngx-clipboard';
 import { JoinComponent } from './join/join.component';
-import { AccordionModule } from 'ngx-bootstrap';
-
+import { AccordionModule, ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -24,7 +23,8 @@ import { AccordionModule } from 'ngx-bootstrap';
     RouterModule,
     NgxChartsModule,
     ClipboardModule,
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [BuySpotComponent, CoreComponent, HomeComponent, AccountComponent, JoinComponent]
 })

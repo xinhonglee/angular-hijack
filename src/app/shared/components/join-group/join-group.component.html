@@ -11,6 +11,7 @@
       <div class="input-group-append">
         <button
           class="btn join-btn"
+          [disabled]="isActive"
           [class.valid]="ethGroup.valid"
           type="button"
           (click)="submit()">
@@ -31,3 +32,41 @@
     </div>
   </div>
 </div>
+
+<ng-template #startMine>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">
+      We`ll now start to mine your spot on blockchain. <br>
+      Please now <b>CONFIRM</b> your transaction in MetaMask.
+    </h2>
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> if not open automatically</p>
+
+    <button class="btn confirm-btn" (click)="modalRef.hide()">
+      Yes, transaction <b>CONFIRMED</b>
+    </button>
+
+  </div>
+</ng-template>
+
+<ng-template #signTransaction>
+  <div class="modal-body">
+
+    <img [src]="mm_logo" class="mm-logo" alt="">
+
+    <h2 class="modal-text text-center">
+      We've successfully mined your spot on blockchain.<br>
+      Please now <b>Sign</b> your transaction in MetaMask.
+    </h2>
+
+    <p class="modal-disclaimer">Click on MetaMask icon <img [src]="mm_icon" alt=""> if not open automatically</p>
+
+    <button class="btn confirm-btn" (click)="modalRef.hide()">
+      Yes, transaction <b>SIGNED</b>
+    </button>
+
+  </div>
+</ng-template>

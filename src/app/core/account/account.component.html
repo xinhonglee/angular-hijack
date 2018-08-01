@@ -11,10 +11,10 @@
         <a routerLink="/account" routerLinkActive="active">Account</a>
       </li>
       <li>
-        <a href="https://news.super.one" target="_blank">News</a>
+        <a href="https://about.super.one" target="_blank">About</a>
       </li>
       <li>
-        <a href="https://news.super.one/help" target="_blank">Help</a>
+        <a href="https://about.super.one/help" target="_blank">Help</a>
       </li>
     </ul>
   </div>
@@ -27,7 +27,7 @@
         <div class="col-12">
           <div class="account-date">
             <div class="row">
-              <p class="account-content">Wednesday, March 7, 2018</p>
+              <p class="account-content">{{dateString}}</p>
             </div>
           </div>
         </div>
@@ -73,14 +73,15 @@
           </div>
 
           <div class="account-stats-wrapper">
-            <p class="stats-title">Your downline</p>
-            <p class="stats-value">{{ downline }}</p>
-          </div>
-
-          <div class="account-stats-wrapper">
             <p class="stats-title">Your tokens</p>
             <p class="stats-value">{{ token }}</p>
             <p class="stats-value">{{tokenPrice}}</p>
+          </div>
+
+          <div class="account-stats-wrapper">
+            <p class="stats-title">Your connections</p>
+            <p class="stats-value">Direct referrals {{ connectionsCount }} (Qualified {{ activeCount }})</p>
+            <p class="stats-value">Current levels {{ allowedUnilevel }}</p>
           </div>
         </div>
       </div>
@@ -91,6 +92,7 @@
       <div class="row loading-wrapper">
         <app-loader></app-loader>
       </div>
+      <p class="content text-center" [hidden]="showText">We're now mining rewards and tokens on blockchain.<br> Please wait...</p>
     </article>
   </section>
 
@@ -142,6 +144,20 @@
       </div>
     </article>
 
+    <article class="container">
+      <div class="row align-items-center flex-column">
+        <div class="col-12 col-md-8 justify-content-center text-right text-md-center">
+          <h4 class="join-lead_title text-left text-md-center">
+            View all your transactions on <strong>Etherscan</strong>
+          </h4>
+          <a [href]="'https://etherscan.io/address/' + ethAddress" class="btn telegram-button" target="_blank">
+            <img [src]="ethBtn" width="20" alt="">
+            etherscan.io
+          </a>
+        </div>
+      </div>
+    </article>
+
     <app-spots [spots]="spots" [hide]="hideOverlay" (hideChange)="handleHidechange($event)" [ethAddress]="ethAddress"></app-spots>
 
     <article class="dont-container">
@@ -158,26 +174,26 @@
       <div class="col-2">
         <ul class="footer-nav">
           <li>
-            <a routerLink='/' routerLinkActive="active">Home</a>
+            <a routerLink='/' routerLinkActive="active"><b>Home</b></a>
           </li>
           <li>
-            <a routerLink="{{switchUrl}}">{{switchText}}</a>
+            <a routerLink="{{switchUrl}}"><b>{{switchText}}</b></a>
           </li>
           <li>
-            <a href="https://news.super.one/" target="_blank">News</a>
+            <a href="https://about.super.one/" target="_blank"><b>About</b></a>
           </li>
           <li>
-            <a href="https://news.super.one/help/" target="_blank">Help</a>
+            <a href="https://about.super.one/help/" target="_blank"><b>Help</b></a>
           </li>
         </ul>
       </div>
       <div class="col-3">
         <ul class="footer-privacy">
           <li>
-            <a href="https://news.super.one/terms-of-service/" target="_blank">Terms of Use</a>
+            <a href="https://about.super.one/terms-of-service/" target="_blank">Terms of Use</a>
           </li>
           <li>
-            <a href="https://news.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
+            <a href="https://about.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
           </li>
         </ul>
       </div>
@@ -185,5 +201,3 @@
     <p class="copyright">© Super.One 2018</p>
   </div>
 </footer>
-
-<app-overlay [hide]="hideOverlay"></app-overlay>

@@ -1,0 +1,78 @@
+<div class="calc-bg">
+  <div class="gradient-body calc-wrap">
+    <div class="calc">
+      <h4 class="calc-title">Crowd Rewards Calculator</h4>
+      <div class="matrix">
+        <div
+          class="spot"
+          *ngFor="let spot of rewardsCalc.totalSpots | times; let spotIndex = index"
+        >
+          <div
+            class="item-block level"
+            *ngFor="let level of rewardsCalc.totalLevels | times; let levelIndex = index"
+            [class.selected]="isLevelSelected(spotIndex, levelIndex)"
+          ></div>
+        </div>
+      </div>
+      <div class="your-rewards-block">
+        <div class="gradient-bg">
+          <div class="gradient-body">
+            <h6>Levels</h6>
+            <div class="num">
+              {{ rewardsCalc.selectedLevels }}
+            </div>
+          </div>
+        </div>
+        <div class="your-rewards">
+          <h4>Your rewards</h4>
+          <div class="eth">ETH {{rewardData.eth | number }}</div>
+          <div class="usd">USD {{rewardData.usd | number }}</div>
+        </div>
+        <div class="gradient-bg">
+          <div class="gradient-body">
+            <h6>Spots</h6>
+            <div class="num">
+              {{ rewardsCalc.selectedSpots }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="choose-block">
+        <h5>Choose levels and spots</h5>
+        <div class="choose-wrap">
+          <h6>Levels</h6>
+          <div class="blocks-wrap">
+            <div
+              class="item-block choose-item"
+              *ngFor="let block of rewardsCalc.totalLevels | times; let i = index"
+              [class.selected]="i < rewardsCalc.selectedLevels"
+              [attr.data-index]="i+1"
+              (click)="selectLevels(i+1)"
+            ></div>
+          </div>
+        </div>
+        <div class="choose-wrap">
+          <h6>Spots</h6>
+          <div class="blocks-wrap">
+            <div
+              class="item-block choose-item"
+              *ngFor="let block of rewardsCalc.totalSpots | times; let i = index"
+              [class.selected]="i < rewardsCalc.selectedSpots"
+              [attr.data-index]="i+1"
+              (click)="selectSpots(i+1)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rewards-disclaimer">
+        <h2 class="pink text-center">
+          “We’re uniting the largest-ever decentralised crowd then launching our revolutionary games and creating massive stakeholder returns.”
+        </h2>
+      </div>
+
+      <a routerLink='/join' class="btn h-join-btn">Join</a>
+
+    </div>
+  </div>
+
+</div>
