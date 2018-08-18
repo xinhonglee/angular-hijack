@@ -4,6 +4,7 @@ import { debounce } from "../../shared/decorators/debounce";
 import { CurrencyService } from "../../shared/services/currency.service";
 import { LocalStorageService } from "angular-2-local-storage";
 import {Web3Service} from "../../shared/services/web3.service";
+import * as $ from 'jquery';
 
 @Component({
   selector: "app-home",
@@ -11,6 +12,11 @@ import {Web3Service} from "../../shared/services/web3.service";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
+  SWIPE_ACTION = { UP: 'swipeup', DOWN: 'swipedown' };
+
+  navbarOpen = false;
+
   public logoPath;
   public trianglesPath;
 
@@ -58,8 +64,44 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private accountChangedSubscription;
 
+  private sections = [];
+
+  private scroll = null;
+
   @ViewChild('concept') conceptVideo: any;
   @ViewChild('rewards') rewardsVideo: any;
+
+  @HostListener('mousewheel', ['$event']) onMouseWheelChrome(event: any) {
+    event.preventDefault();
+    console.log('mouse wheel');
+    if (this.scroll.isThrottled) { return; }
+    this.scroll.isThrottled = true;
+    let _this = this;
+    setTimeout(function () {
+      _this.scroll.isThrottled = false;
+    }, this.scroll.throttleDuration);
+
+    if(event.wheelDelta > 0) {
+
+      if(this.scroll.activeSection === 0) return false;
+      this.upSection();
+      console.log('WHEELED DOWN');
+
+    } else {
+
+      if(this.scroll.activeSection >= this.scroll.sectionCount) return false;
+      this.downSection();
+      console.log('WHEELED UP');
+
+    }
+
+    console.log(this.scroll.activeSection);
+  }
+
+  @HostListener('scroll', ['$event']) onScrollChrome(event: any) {
+    console.log('scroll');
+    event.preventDefault();
+  }
 
   onOverlayClick(video) {
     if(video === 'concept') {
@@ -78,7 +120,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private localstorageService: LocalStorageService,
     private web3Service: Web3Service
   ) {
-    this.logoPath = "assets/images/LOGO.svg";
+    this.logoPath = "assets/images/LOGO-BLACK.png";
     this.trianglesPath = "assets/images/TRIANGLES_HERO_IMAGE.png";
 
     this.boostCrowd = "assets/images/BOOST_CROWD.png";
@@ -111,6 +153,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       localstorageService.remove("hasSpot");
       localstorageService.add("firstTime", {});
     }
+
   }
 
   ngOnInit() {
@@ -149,13 +192,68 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.switchText = "Join";
         }
       }
-    })
+    });
+
+    // for MouseWheel variables
+
+    this.sections = $('.box').toArray();
+    console.log($('.box'));
+    console.log($('.one').html());
+    this.setSizes();
+
+    this.scroll = {
+      activeSection: 0,
+      sectionCount: this.sections.length - 1,
+      isThrottled: false,
+      throttleDuration: 1000,
+      target: $(this.sections[0]).position().top
+    };
+
   }
 
   ngOnDestroy() {
     clearInterval(this.interval);
   }
 
+  swipe(action) {
+    console.log('swipe', action);
+    if ((action === this.SWIPE_ACTION.UP) && (this.scroll.activeSection != this.sections.length - 1) ){
+
+      this.downSection();
+      console.log('ARROW DOWN');
+
+    } else if((action === this.SWIPE_ACTION.DOWN) && (this.scroll.activeSection != 0)){
+
+      this.upSection();
+      console.log('ARROW UP');
+
+    }
+  }
+
+  setSizes(){
+    for (let i = 0; i < this.sections.length; i++) {
+
+      $(this.sections[i]).css({
+        'top' : window.innerHeight * i,
+        'height' : window.innerHeight,
+        'width' : window.innerWidth
+      });
+    }
+
+    console.log(this.sections);
+  }
+
+  upSection(){
+    let positionFromTop = $(this.sections[this.scroll.activeSection - 1]).position().top;
+    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    --this.scroll.activeSection;
+  }
+
+  downSection() {
+    let positionFromTop = $(this.sections[this.scroll.activeSection + 1]).position().top;
+    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    ++this.scroll.activeSection;
+  }
 
   public setRefToDisplay(refToDisplay: string): void {
     this.refToDisplay = refToDisplay;
@@ -197,5 +295,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.secondUsd = this.currencyService.calculateUsd(ether, this.secondRef);
       this.thirdUsd = this.currencyService.calculateUsd(ether, this.thirdRef);
     });
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 }

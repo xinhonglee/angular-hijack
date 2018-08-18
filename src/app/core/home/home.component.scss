@@ -1,133 +1,67 @@
 @import "~scss/variables";
 
-.home-hero-section {
-	//height: 50vw;
-	max-height: 650px;
-
-	.home-hero-caption {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
-
-		.img-logo {
-			height: 83px;
-		}
-		h3 {
-      max-width: 62%;
-      font-size: 30px;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.29;
-      letter-spacing: normal;
-		}
-
-
-    @media screen and (max-width: 768px) {
-      flex-flow: column nowrap;
-      align-items: flex-start;
-      .img-logo {
-        height: 49px;
-      }
-      h3 {
-        font-size: 18px;
-        max-width: 100%;
-        margin-top: 25px;
-      }
-    }
-
-	}
-
-	//&:before {
-	//	background-image: url(../../../assets/images/hero_image.png);
-	//}
-
-}
-.table-toggle {
-	display: none;
+body {
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  /*position: absolute;*/
+  margin: 0;
+  overflow: hidden !important;
 }
 
-.h-join-btn {
-  margin-top: 50px;
-
-
-  min-width: 200px;
-  height: 44px;
-  border-right: 5px;
-  font-family: AktivGrotesk;
-  color: white;
-  letter-spacing: 1.1px;
-  font-weight: bold;
-  text-transform: uppercase;
-  background-color: #6b00ff;
-
-  font-size: 20px;
+.section-1 {
+	height: 79px !important;
+	background-color: #fff;
+	color: #000;
+	text-align: center;
 }
 
-@media screen and (max-width: 991px) {
-	.table-toggle {
-		display: block;
-		margin-bottom: 18px;
-		.table-toggle-buttons {
-			display: flex;
-			justify-content: space-between;
-		}
-		h6 {
-			text-transform: uppercase;
-			font-weight: bold;
-			font-size: 14px;
-		}
-		.btn {
-			opacity: 0.5;
-			font-size: 24px;
-			&.active {
-				opacity: 1;
-				border-color: white;
-				color: white;
-			}
-		}
-	}
-	.home-hero-section {
-		height: auto;
-		max-height: 100%;
-		.home-hero-caption {
-			.img-logo {
-				height: 49px;
-			}
-			h3 {
-        font-size: 25px;
-			}
-		}
-	}
+.section-2 {
+	min-height: 621px;
+	background-color: #acaaaf;
+	color: #000;
+	text-align: center;
+	border: 1px solid grey;
 }
 
-@media screen and (max-width: 700px) {
-  .home-hero-caption {
-
-    flex-flow: column nowrap;
-
-    .img-logo {
-      height: 49px;
-    }
-    h3 {
-      font-size: 18px;
-      max-width: 100%;
-      margin-top: 25px;
-    }
-  }
+.section-3 {
+	min-height: 700px;
+	background-color: #726e77;
+	color: #000;
+	text-align: center;
+	border: 1px solid grey;
 }
 
-
-@media screen and (max-width: 1199px) and (min-width: 992px) {
-	.home-hero-section {
-		.home-hero-caption {
-			.img-logo {
-				height: 46px;
-			}
-			h3 {
-        font-size: 30px;
-			}
-		}
-	}
+.logoImg {
+	height: 53px;
 }
 
+.box {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: red;
+}
+
+.one {
+  background-color: red;
+}
+
+.two {
+  background-color: blue;
+}
+
+.three {
+  background-color: green;
+}
+
+.four {
+  background-color: aqua;
+}
+
+.five {
+  background-color: orange;
+}

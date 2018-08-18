@@ -1,179 +1,95 @@
-<nav class="nav-wrapper">
-  <div class="container d-flex justify-content-end">
-    <ul class="nav-ul">
-      <li>
-        <a routerLink='/' routerLinkActive="active">Home</a>
-      </li>
-      <li>
-        <a routerLink="{{switchUrl}}">{{switchText}}</a>
-      </li>
-      <li>
-        <a href="https://about.super.one" target="_blank">About</a>
-      </li>
-      <li>
-        <a href="https://about.super.one/help" target="_blank">Help</a>
-      </li>
-      <li class="eng-item">
-        <a href="#" target="_blank">Eng</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="hero-section-wrapper">
-  <section class="section-primary home-hero-section">
-    <div class="container">
-      <div class="home-hero-caption">
-        <img [src]="logoPath" class="img-logo" alt="SuperOne logo">
-        <h3>The world’s first decentralized platform unifying crypto gaming and crowd referral marketing via blockchain
-          innovation.</h3>
-      </div>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light -autoprefixer">-->
+  <!--<a class="navbar-brand" href="#">-->
+    <!--Brand-->
+  <!--</a>-->
 
+  <!--<button class="navbar-toggler" type="button" (click)="toggleNavbar()">-->
+    <!--<span class="navbar-toggler-icon"></span>-->
+  <!--</button>-->
+
+
+  <!--<div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">-->
+    <!--<ul class="navbar-nav ml-auto">-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#" (click)="toggleNavbar()">About</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Join</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Help</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+<!--</nav>-->
+
+<!--<div class="container">-->
+  <!--<div class="row section-2 box">-->
+    <!--<div class="col-md-12">-->
+      <!--section-2-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-6 section-3">-->
+      <!--section-3-1-->
+    <!--</div>-->
+    <!--<div class="col-md-6 section-3">-->
+      <!--section-3-2-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-4 section-2">-->
+      <!--section-4-1-->
+    <!--</div>-->
+    <!--<div class="col-md-8 section-2">-->
+      <!--section-4-2-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-3 section-3">-->
+      <!--section-5-1-->
+    <!--</div>-->
+    <!--<div class="col-md-9 section-3">-->
+      <!--section-5-2-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-6 section-2">-->
+      <!--section-3-1-->
+    <!--</div>-->
+    <!--<div class="col-md-6 section-2">-->
+      <!--section-3-2-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="box one" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light -autoprefixer">
+    <a class="navbar-brand" href="#">
+      <img class="logoImg" src={{logoPath}} />
+    </a>
+
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="toggleNavbar()">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Join</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Help</a>
+        </li>
+      </ul>
     </div>
-  </section>
+  </nav>
 </div>
-
-<section class="video-section">
-  <div class="container video-container">
-    <div class="section-content video-content">
-      <div class='embed-container'>
-        <div class="video-overlay concept-overlay" *ngIf="conceptOverlayVisible" (click)="onOverlayClick('concept')">
-          <img class="play-btn" src="../../../assets/images/button.png" alt="play button video">
-        </div>
-        <video width="900" height="450" controls #concept>
-          <source src="https://s3-eu-west-1.amazonaws.com/super-one/super_one_-_introduction_web.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="video-text container">
-    <p class="video-title">The Concept</p>
-    <p>
-      SuperOne is the world’s first blockchain platform to unite crypto gaming and crowd marketing.
-    </p>
-    <p>
-      SuperOne provides innovative bidding games where players bid to win a secret amount of Ether.
-      It’s not gambling, but a fresh new form of digital money games, ready for millions of players.
-    </p>
-    <p>
-      The games are operated by a smart contract on the global blockchain and will launch when
-      1 million spots are sold.
-    </p>
-    <p>
-      SuperOne expects to profit 50,000 Ether for every million games played,
-      and in a 100 billion dollar booming market, the potential is endless.
-    </p>
-    <p>
-      SuperOne is set to thrive in its combination of boundless crowd-power and
-      sublimely-engineered crypto game concepts.
-    </p>
-  </div>
-
-  <a routerLink='/join' class="btn h-join-btn">Join</a>
-
-</section>
-
-<section class="video-section">
-  <div class="container video-container">
-    <div class="section-content video-content">
-      <div class='embed-container'>
-        <div class="video-overlay rewards-overlay" *ngIf="rewardsOverlayVisible" (click)="onOverlayClick('rewards')">
-          <img class="play-btn" src="../../../assets/images/button.png" alt="play button video">
-
-        </div>
-        <video width="900" height="450" controls #rewards>
-          <source src="https://s3-eu-west-1.amazonaws.com/super-one/superone_-_the_rewards.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="video-text container">
-    <p class="video-title">The Rewards</p>
-    <p>
-      SuperOne is transforming crowdfunding by giving you secret game and
-      crowd rewards instantly and directly to your wallet.
-    </p>
-    <p>
-      Everyone join SuperOne by purchasing blockchain spots with tokens.
-      Spots cost 0.1 Ether each and are arranged in a three by ten forced matrix structure
-      with all other spots on the platform.
-    </p>
-    <p>
-      Rewards are based on direct referrals connected to each spot.
-      One referral gives you 2%, two referrals 4% and three referrals brings you to the maximum of 8% over 10 levels.
-    </p>
-    <p>
-      Included are also three levels of direct referral rewards,
-      to make sure you’re earning immediately from all your efforts.
-    </p>
-    <p>
-      All the game profits are also directly transferred to your tokens,
-      and each spot could potentially earn tens of thousands of dollars.
-    </p>
-    <p>
-      Please check out our rewards calculator at Super.
-      One and make sure you secure your share of the revolution.
-    </p>
-  </div>
-</section>
-
-
-<!-- Phase 1 -->
-<div class="section-wrapper">
-  <section class="section-secondary">
-    <div class="container">
-      <app-rewards-calculator></app-rewards-calculator>
-    </div>
-  </section>
-</div>
-<section class="section-secondary warning">
-  <div class="container">
-    <div class="section-content">
-      <p class="mb-0"><b>Warning:</b> We love trustless freedom however a few ground rules must be mentioned. We don’t
-        accept public solicitation or spam. This system is for personal referrals only. No public advertising or Ether
-        address spamming. We don’t accept addresses with suspicious histories. We’re industry professionals building a
-        reputable crowd for the future. We perform Ether address background checks. We don’t accept adverse or
-        devaluating behaviour. We are prudent innovators exploring the future today. We are well versed in mathematics
-        and technology and we have created solid sustainable structures. These are absolutely zero tolerance. Violations
-        will result in Ether address blacklisting and blocking of rewards and tokens. No exceptions.</p>
-    </div>
-  </div>
-</section>
-
-<footer class="page-footer mb-0">
-  <div class="container">
-    <div class="footer-data row">
-      <div class="col-7">
-        <img [src]="logoPath" class="footer-logo" alt="SuperOne logo">
-      </div>
-      <div class="col-2">
-        <ul class="footer-nav">
-          <li>
-            <a routerLink='/' routerLinkActive="active"><b>Home</b></a>
-          </li>
-          <li>
-            <a routerLink="{{switchUrl}}"><b>{{switchText}}</b></a>
-          </li>
-          <li>
-            <a href="https://about.super.one/" target="_blank"><b>About</b></a>
-          </li>
-          <li>
-            <a href="https://about.super.one/help/" target="_blank"><b>Help</b></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-3">
-        <ul class="footer-privacy">
-          <li>
-            <a href="https://about.super.one/terms-of-service/" target="_blank">Terms of Use</a>
-          </li>
-          <li>
-            <a href="https://about.super.one/privacy-policy/" target="_blank">Privacy Policy</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <p class="copyright">© Super.One 2018</p>
-  </div>
-</footer>
+<div class="box two" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
+<div class="box three" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
+<div class="box four" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
+<div class="box five" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
