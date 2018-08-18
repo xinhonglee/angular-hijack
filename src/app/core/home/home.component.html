@@ -1,95 +1,43 @@
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light -autoprefixer">-->
-  <!--<a class="navbar-brand" href="#">-->
-    <!--Brand-->
-  <!--</a>-->
 
-  <!--<button class="navbar-toggler" type="button" (click)="toggleNavbar()">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-  <!--</button>-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#">
+    <img class="logoImg" src={{logoPath}} />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-  <!--<div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">-->
-    <!--<ul class="navbar-nav ml-auto">-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#" (click)="toggleNavbar()">About</a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Join</a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Help</a>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
-<!--</nav>-->
-
-<!--<div class="container">-->
-  <!--<div class="row section-2 box">-->
-    <!--<div class="col-md-12">-->
-      <!--section-2-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-md-6 section-3">-->
-      <!--section-3-1-->
-    <!--</div>-->
-    <!--<div class="col-md-6 section-3">-->
-      <!--section-3-2-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-md-4 section-2">-->
-      <!--section-4-1-->
-    <!--</div>-->
-    <!--<div class="col-md-8 section-2">-->
-      <!--section-4-2-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-md-3 section-3">-->
-      <!--section-5-1-->
-    <!--</div>-->
-    <!--<div class="col-md-9 section-3">-->
-      <!--section-5-2-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-md-6 section-2">-->
-      <!--section-3-1-->
-    <!--</div>-->
-    <!--<div class="col-md-6 section-2">-->
-      <!--section-3-2-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item nav-item-1">
+        <a class="nav-link" href="#">JOIN <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">About</a>
+          <a class="dropdown-item" href="#">Help</a>
+          <a class="dropdown-item" href="#">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="box one" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light -autoprefixer">
-    <a class="navbar-brand" href="#">
-      <img class="logoImg" src={{logoPath}} />
-    </a>
-
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" (click)="toggleNavbar()">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Join</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" href="#" (click)="toggleNavbar()">Help</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  This is section 1
 </div>
-<div class="box two" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
-<div class="box three" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
-<div class="box four" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
-<div class="box five" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)"></div>
+<div class="box two" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
+  This is section 2
+</div>
+<div class="box three" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
+  This is section 3
+</div>
+<div class="box four" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
+  This is section 4
+</div>
+<div class="box five" (swipeup)="swipe($event.type)" (swipedown)="swipe($event.type)">
+  This is section 5
+</div>

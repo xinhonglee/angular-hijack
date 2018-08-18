@@ -9,31 +9,8 @@ body {
   overflow: hidden !important;
 }
 
-.section-1 {
-	height: 79px !important;
-	background-color: #fff;
-	color: #000;
-	text-align: center;
-}
-
-.section-2 {
-	min-height: 621px;
-	background-color: #acaaaf;
-	color: #000;
-	text-align: center;
-	border: 1px solid grey;
-}
-
-.section-3 {
-	min-height: 700px;
-	background-color: #726e77;
-	color: #000;
-	text-align: center;
-	border: 1px solid grey;
-}
-
 .logoImg {
-	height: 53px;
+	height: 33px;
 }
 
 .box {
@@ -44,6 +21,8 @@ body {
   height: 100%;
   overflow: hidden;
   background-color: red;
+  padding-top: 80px;
+  padding-left: 50px;
 }
 
 .one {
@@ -64,4 +43,25 @@ body {
 
 .five {
   background-color: orange;
+}
+
+.navbar {
+  z-index: 999 !important;
+}
+
+.navbar-nav {
+  margin-left: 70%;
+}
+
+.nav-item-1 {
+  margin-right: 30px;
+}
+
+.dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0,0,0,.9);
 }
