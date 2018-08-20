@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="1939px" viewBox="0 0 375 1939" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="90.8882856%" cy="43.6128499%" fx="90.8882856%" fy="43.6128499%" r="100%" gradientTransform="translate(0.908883,0.436128),scale(0.383660,1.000000),rotate(90.000000),scale(1.000000,1.322003),translate(-0.908883,-0.436128)" id="radialGradient-1">
+            <stop stop-color="#26005A" offset="0%"></stop>
+            <stop stop-color="#0E0022" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="90.8882856%" cy="43.6128499%" fx="90.8882856%" fy="43.6128499%" r="100%" gradientTransform="translate(0.908883,0.436128),scale(0.207449,1.000000),rotate(90.000000),scale(1.000000,1.322003),translate(-0.908883,-0.436128)" id="radialGradient-2">
+            <stop stop-color="#26005A" offset="0%"></stop>
+            <stop stop-color="#0E0022" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SUPER.ONE_HOME_MOBILE-Copy-2" transform="translate(0.000000, -1842.000000)">
+            <g id="PHASE_1" transform="translate(-31.000000, 1706.000000)">
+                <g id="Group-3" transform="translate(218.000000, 1105.500000) scale(1, -1) rotate(90.000000) translate(-218.000000, -1105.500000) translate(-751.000000, 911.000000)">
+                    <path d="M925.478624,0 L1881.8443,2.45073098 L1933.21006,163.495514 C1939.5817,183.472215 1939.51265,204.946379 1933.0127,224.881696 L1879.68385,388.44086 L925.478624,388.44086 L925.478624,0 Z" id="BG-Copy-3" fill="url(#radialGradient-1)" opacity="0.200000003" transform="translate(1431.708684, 194.220430) scale(1, -1) translate(-1431.708684, -194.220430) "></path>
+                    <path d="M892.985472,0 L1849.35115,2.45073098 L1900.71691,163.495514 C1907.08854,183.472215 1907.0195,204.946379 1900.51955,224.881696 L1847.1907,388.44086 L892.985472,388.44086 L892.985472,0 Z" id="BG-Copy-2" fill="url(#radialGradient-1)" opacity="0.400000006" transform="translate(1399.215532, 194.220430) scale(1, -1) translate(-1399.215532, -194.220430) "></path>
+                    <path d="M872.308012,0 L1828.67369,2.45073098 L1880.03945,163.495514 C1886.41108,183.472215 1886.34204,204.946379 1879.84208,224.881696 L1826.51324,388.44086 L872.308012,388.44086 L872.308012,0 Z" id="BG-Copy" fill="url(#radialGradient-1)" opacity="0.600000024" transform="translate(1378.538071, 194.220430) scale(1, -1) translate(-1378.538071, -194.220430) "></path>
+                    <path d="M0,0 L1816.36568,2.45073098 L1867.73144,163.495514 C1874.10307,183.472215 1874.03403,204.946379 1867.53407,224.881696 L1814.20523,388.44086 L0,388.44086 L0,0 Z" id="BG" fill="url(#radialGradient-2)" transform="translate(936.230059, 194.220430) scale(1, -1) translate(-936.230059, -194.220430) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -65,3 +65,64 @@ body {
 .navbar-light .navbar-nav .nav-link {
   color: rgba(0,0,0,.9);
 }
+
+.megamenu {
+  position:static;
+}
+.megamenu > .dropdown-menu {
+  margin-top: -0.6px;
+  width: 100.15%;
+  margin-right: -1px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+@media screen and (min-width: 992px) {
+
+  .megamenu ul {
+    padding-bottom:15px;
+  }
+
+  .megamenu > .dropdown-menu {
+    min-width: 800px;
+  }
+
+}
+
+.main-list {
+  text-align: right;
+}
+
+.dropdown-menu ul li a {
+  color: #000 !important;
+}
+
+.dropdown-menu ul li {
+  padding-top: 15px;
+}
+
+.divider {
+  border-bottom: 1px solid #888;
+}
+
+.section-1 {
+  margin-bottom: 20px;
+}
+
+.section-2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.section-3 img {
+  width: 15px;
+}
+
+.section-3 span {
+  font-size: 12px;
+}
+
+.section-3 {
+  padding-top: 10px;
+}

@@ -68,6 +68,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private scroll = null;
 
+  public icon_language;
+  public icon_location;
+  public icon_facebook;
+  public icon_twitter;
+  public icon_telegram;
+
   @ViewChild('concept') conceptVideo: any;
   @ViewChild('rewards') rewardsVideo: any;
 
@@ -139,6 +145,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.getPhases = "assets/images/GET_PHASES.png";
 
     this.telegramPath = "assets/images/Telegram.png";
+
+    this.icon_language = "assets/images/icon/language.svg";
+    this.icon_location = "assets/images/icon/location.svg";
+    this.icon_facebook = "assets/images/icon/facebook.svg";
+    this.icon_twitter = "assets/images/icon/twitter.svg";
+    this.icon_telegram = "assets/images/icon/telegram.svg";
 
     this.innerHeight = window.screen.height;
     this.innerWidth = window.screen.width;
