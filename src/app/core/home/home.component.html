@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-toggleable-sm bg-faded">
+<nav class="navbar navbar-custom-1 fixed-top navbar-toggleable-sm bg-faded">
   <a class="navbar-brand" href="#">
     <img class="logoImg" src={{logoPath}} />
   </a>
@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="#">
       JOIN
     </a>
-    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+    <button class="navbar-toggler navbar-toggler-custom-1 navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
       <span> </span>
       <span> </span>
       <span> </span>
@@ -16,23 +16,32 @@
 
     <ul class="nav navbar-nav">
       <div class="mega-menu p-3">
+        <div class="row mobile-view menu-divider">
+          <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+          </ul>
+          <ul class="list-unstyled col-md-10 col-sm-10 mobile-divider" role="menu">
+            <div class="divider"></div>
+          </ul>
+          <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+          </ul>
+        </div>
         <div class="row section-1">
-          <ul class="list-unstyled col-md-1 col-sm-1 col-1" role="menu">
+          <ul class="list-unstyled col-md-1 col-sm-1 desktop-view" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-2 col-sm-1 col-1" role="menu">
+          <ul class="list-unstyled col-md-2 col-sm-1 desktop-view" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-3 col-sm-1 col-1" role="menu">
+          <ul class="list-unstyled col-md-3 col-sm-1 desktop-view" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-3 col-sm-1 col-1" role="menu">
+          <ul class="list-unstyled col-md-3 col-sm-1 desktop-view" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-2 col-sm-4 main-list col-3" role="menu">
+          <ul class="list-unstyled col-md-2 col-sm-4 main-list col-12" role="menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">News</a></li>
             <li><a href="#">Help</a></li>
             <li><a href="#">Join</a></li>
           </ul>
-          <ul class="list-unstyled col-md-1 col-sm-4 col-4" role="menu">
+          <ul class="list-unstyled col-md-1 col-sm-4 desktop-view" role="menu">
           </ul>
         </div>
         <div class="row">
@@ -45,19 +54,38 @@
           </ul>
         </div>
         <div class="row section-2">
-          <ul class="list-unstyled col-md-1 col-sm-3" role="menu">
+          <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-2 col-sm-3 col-6" role="menu">
+          <ul class="list-unstyled col-md-2 col-sm-3" role="menu">
             <img src={{icon_language}}/>&nbsp;<span>ENGLISH</span>
           </ul>
-          <ul class="list-unstyled col-md-3 col-sm-3 col-6 menu-location" role="menu">
+          <ul class="list-unstyled col-md-3 col-sm-3 menu-location" role="menu">
             <img src={{icon_location}}/>&nbsp;<span>OSLO</span>
           </ul>
-          <ul class="list-unstyled col-md-3 col-sm-1 col-1" role="menu">
+          <ul class="list-unstyled col-md-3 col-sm-1" role="menu">
           </ul>
           <ul class="list-unstyled col-md-2 col-sm-1" role="menu">
           </ul>
           <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+          </ul>
+        </div>
+        <div class="row section-2-1 mobile-view">
+          <ul class="list-unstyled col-md-12 col-sm-12 col-12" role="menu">
+            <img src={{icon_language}}/>&nbsp;<span>ENGLISH</span>
+          </ul>
+        </div>
+        <div class="row mobile-view">
+          <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+          </ul>
+          <ul class="list-unstyled col-md-10 col-sm-10" role="menu">
+            <div class="divider"></div>
+          </ul>
+          <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+          </ul>
+        </div>
+        <div class="row section-2-2 mobile-view">
+          <ul class="list-unstyled col-md-12 col-sm-12 col-12" role="menu">
+            <img src={{icon_location}}/>&nbsp;<span>OSLO</span>
           </ul>
         </div>
         <div class="row">
@@ -72,11 +100,11 @@
         <div class="row section-3">
           <ul class="list-unstyled col-md-1 col-sm-3" role="menu">
           </ul>
-          <ul class="list-unstyled col-md-2 col-sm-3 col-7 social-text" role="menu">
+          <ul class="list-unstyled col-md-2 col-sm-3 col-6 social-text" role="menu">
             <span>Follow us on Social Media</span>
           </ul>
-          <ul class="list-unstyled col-md-3 col-sm-3 social-icons col-5" role="menu">
-            <img src={{icon_facebook}}/>&nbsp;<img src={{icon_twitter}}/>&nbsp;<img src={{icon_telegram}}/>
+          <ul class="list-unstyled col-md-3 col-sm-3 social-icons col-6" role="menu">
+            <img src={{icon_facebook}}/><img src={{icon_twitter}}/><img src={{icon_telegram}}/>
           </ul>
           <ul class="list-unstyled col-md-3 col-sm-1" role="menu">
           </ul>
