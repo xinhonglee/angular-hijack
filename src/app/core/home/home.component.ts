@@ -65,8 +65,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   private accountChangedSubscription;
 
   private sections = [];
+  private mobileSections = [];
 
   private scroll = null;
+  private mobileScroll = null;
 
   public icon_language;
   public icon_location;
@@ -221,6 +223,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       target: $(this.sections[0]).position().top
     };
 
+    this.mobileSections = $('.mobile-box').toArray();
+    this.setSizesForMobile();
+    this.mobileScroll = {
+      activeSection: 0,
+      sectionCount: this.sections.length - 1,
+      isThrottled: false,
+      throttleDuration: 1000,
+      target: $(this.sections[0]).position().top
+    };
+
   }
 
   ngOnDestroy() {
@@ -242,10 +254,38 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  mobileSwipe(action) {
+    console.log('swipe', action);
+    if ((action === this.SWIPE_ACTION.UP) && (this.mobileScroll.activeSection != this.mobileSections.length - 1) ){
+
+      this.downSectionForMobile();
+      console.log('ARROW DOWN');
+
+    } else if((action === this.SWIPE_ACTION.DOWN) && (this.mobileScroll.activeSection != 0)){
+
+      this.upSectionForMobile();
+      console.log('ARROW UP');
+
+    }
+  }
+
   setSizes(){
     for (let i = 0; i < this.sections.length; i++) {
 
       $(this.sections[i]).css({
+        'top' : window.innerHeight * i,
+        'height' : window.innerHeight,
+        'width' : window.innerWidth
+      });
+    }
+
+    console.log(this.sections);
+  }
+
+  setSizesForMobile(){
+    for (let i = 0; i < this.mobileSections.length; i++) {
+
+      $(this.mobileSections[i]).css({
         'top' : window.innerHeight * i,
         'height' : window.innerHeight,
         'width' : window.innerWidth
@@ -265,6 +305,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     let positionFromTop = $(this.sections[this.scroll.activeSection + 1]).position().top;
     $("body, html").animate({ "scrollTop": positionFromTop }, 300);
     ++this.scroll.activeSection;
+  }
+
+  upSectionForMobile(){
+    let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection - 1]).position().top;
+    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    --this.mobileScroll.activeSection;
+  }
+
+  downSectionForMobile() {
+    let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection + 1]).position().top;
+    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    ++this.mobileScroll.activeSection;
   }
 
   public setRefToDisplay(refToDisplay: string): void {

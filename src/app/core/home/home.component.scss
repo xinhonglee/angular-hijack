@@ -21,19 +21,12 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: red;
+  background-color: #0ef7ae;
   padding-top: 80px;
-  padding-left: 50px;
 }
 
 .one {
-  //background-color: red;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8c23b2+0,074699+100 */
-  background: #8c23b2; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #8c23b2 0%, #074699 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #8c23b2 0%,#074699 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #8c23b2 0%,#074699 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c23b2', endColorstr='#074699',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background-color: white;
 }
 
 .two {
@@ -70,12 +63,13 @@ body {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0,0,0,.9);
+  color: rgba(0, 0, 0, .9);
 }
 
 .mega-menu {
-  position:static;
+  position: static;
 }
+
 .mega-menu {
   margin-top: -0.6px;
   width: 100.15%;
@@ -88,7 +82,7 @@ body {
 @media screen and (min-width: 992px) {
 
   .mega-menu ul {
-    padding-bottom:15px;
+    padding-bottom: 15px;
   }
 
   .mega-menu {
@@ -244,13 +238,12 @@ body {
   .desktop-only {
     display: none;
   }
-  
+
   .main-list {
     text-align: center;
   }
-  
-  .menu-location
-  {
+
+  .menu-location {
     text-align: right;
   }
 
@@ -262,7 +255,7 @@ body {
     padding-top: 20px;
     padding-bottom: 16px;
   }
-  
+
   .desktop-view {
     display: none;
   }
@@ -324,7 +317,7 @@ body {
   }
 
   .section-1 {
-    height: calc(100vh - 275px);
+    height: calc(100vh - 272px);
     margin: 0;
     align-items: center;
   }
@@ -412,5 +405,279 @@ body {
 
   .nav-header {
     margin-top: 2px;
+  }
+}
+
+.custom-container {
+  display: flex;
+  width: 1165px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1152px;
+  }
+}
+
+.home-title-line-1 {
+  font-size: 26pt;
+  color: #000;
+  font-weight: bold;
+}
+
+.home-title-line-2 {
+  font-size: 26pt;
+  color: #000;
+  font-weight: bold;
+}
+
+.hero-area .row {
+  margin-top: 108px;
+}
+
+.hero-area {
+  background-color: #0ef7ae;
+  padding-top: 106px;
+  padding-bottom: 53px;
+}
+
+.concept-area {
+  background-color: #0ef7ae;
+  padding-top: 106px;
+  padding-bottom: 53px;
+}
+
+.game-area {
+  background-color: #0ef7ae;
+  padding-top: 106px;
+  padding-bottom: 53px;
+}
+
+.token-area {
+  background-color: #0ef7ae;
+  padding-top: 106px;
+  padding-bottom: 53px;
+}
+
+.network-area {
+  background-color: #0ef7ae;
+  padding-top: 106px;
+  padding-bottom: 53px;
+}
+
+.box .title {
+  font-size: 26px;
+  color: #000;
+  font-weight: bold;
+}
+
+.box .text-content {
+  font-size: 18px;
+  color: #000;
+  font-weight: 400;
+}
+
+.mobile-box .title {
+  font-size: 26px;
+  color: #000;
+  font-weight: bold;
+}
+
+.mobile-box .text-content {
+  font-size: 18px;
+  color: #000;
+  font-weight: 400;
+}
+
+.concept-area .title {
+  margin-top: 200px;
+}
+
+.concept-area .content-1 {
+  margin-top: 40px;
+}
+
+.concept-area .content-2 {
+  margin-top: 33px;
+}
+
+.concept-area-common .title {
+  margin-top: 0;
+}
+
+.concept-area-common .content-1 {
+  margin-top: 20px;
+}
+
+.concept-area-common .content-2 {
+  margin-top: 13px;
+}
+
+.game-area .title {
+  margin-top: 200px;
+}
+
+.game-area .content-1 {
+  margin-top: 40px;
+}
+
+.game-area .content-2 {
+  margin-top: 33px;
+}
+
+.box .video {
+  width: 100%;
+  height: 100%;
+  background-color: #a510d4;
+  text-align: center;
+  padding-top: 60%;
+}
+
+.box .learn-more span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8600a5;
+  border: 2px solid #8600a5;
+  padding: 6px 17px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mobile-box .video {
+  width: 100%;
+  height: 100%;
+  background-color: #5f3d90;
+  text-align: center;
+  padding-top: 60%;
+}
+
+.mobile-box .learn-more span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8600a5;
+  border: 2px solid #8600a5;
+  padding: 6px 17px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.concept-area .learn-more {
+  margin-top: calc(100vh - 690px);
+}
+
+.concept-area-common .learn-more {
+  margin-top: calc(100vh - 515px);
+}
+
+.game-area .learn-more {
+  margin-top: calc(100vh - 663px);
+}
+
+.video-intro-text {
+  color: #fff;
+}
+
+.box .title {
+  margin-top: 200px;
+}
+
+.box .content-1 {
+  margin-top: 40px;
+}
+
+.box .content-2 {
+  margin-top: 33px;
+}
+
+.token-area .learn-more {
+  margin-top: calc(100vh - 637px);
+}
+
+.network-area .learn-more {
+  margin-top: calc(100vh - 666px);
+}
+
+.reward-area .learn-more {
+  margin-top: calc(100vh - 637px);
+}
+
+.calc-area .learn-more {
+  margin-top: calc(100vh - 640px);
+}
+
+.market-area .learn-more {
+  margin-top: calc(100vh - 614px);
+}
+
+.audience-area .learn-more {
+  margin-top: calc(100vh - 614px);
+}
+
+@media (max-width: 819px) {
+  .home-title-line-1 {
+    font-size: 26px;
+  }
+
+  .home-title-line-2 {
+    font-size: 26px;
+  }
+
+  .mobile-box {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #0ef7ae;
+    padding-top: 101.5px;
+    padding-bottom: 37.5px;
+  }
+
+  .hero-area .row {
+    margin-top: 50px;
+  }
+
+  .mobile-box .video {
+    width: 100%;
+    height: calc(100vh - 137px);
+    background-color: #000;
+    text-align: center;
+    padding-top: 70%;
+  }
+
+  .game-area .title {
+    margin-top: 0;
+  }
+
+  .game-area .content-1 {
+    margin-top: 20px;
+  }
+
+  .game-area .content-2 {
+    margin-top: 13px;
+  }
+
+  .game-area .learn-more {
+    margin-top: calc(100vh - 515px);
   }
 }
