@@ -468,8 +468,8 @@ body {
 
 .game-area {
   background-color: #0ef7ae;
-  padding-top: 106px;
-  padding-bottom: 53px;
+  padding-top: 112px;
+  padding-bottom: 56px;
 }
 
 .token-area {
@@ -546,10 +546,12 @@ body {
 
 .box .video {
   width: 100%;
-  height: 100%;
   background-color: #a510d4;
   text-align: center;
-  padding-top: 60%;
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 168px);
+  justify-content: center;
 }
 
 .box .learn-more span {
@@ -560,14 +562,6 @@ body {
   padding: 6px 17px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.mobile-box .video {
-  width: 100%;
-  height: 100%;
-  background-color: #5f3d90;
-  text-align: center;
-  padding-top: 60%;
 }
 
 .mobile-box .learn-more span {
@@ -659,10 +653,12 @@ body {
 
   .mobile-box .video {
     width: 100%;
-    height: calc(100vh - 137px);
+    height: -webkit-calc(100vh - 200px);
     background-color: #000;
     text-align: center;
-    padding-top: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .game-area .title {
@@ -679,5 +675,46 @@ body {
 
   .game-area .learn-more {
     margin-top: calc(100vh - 515px);
+  }
+}
+
+.copy-wrapper {
+  height: calc(100vh - 168px);
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .title {
+    margin-top: 0;
+  }
+
+  .learn-more {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-grid;
+  }
+}
+
+@media (max-width: 819px) {
+  .copy-wrapper {
+    height: calc(100vh - 228px);
+    align-items: normal;
+  }
+
+  .section-1 {
+    height: -webkit-calc(100vh - 372px);
+  }
+
+  .navbar-nav {
+    height: calc(100vh - 65px) !important;
+  }
+  
+  .text-align {
+    text-align: center;
+  }
+
+  .footer-center-logo img {
+    width: 70%;
   }
 }
