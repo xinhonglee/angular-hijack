@@ -1,15 +1,15 @@
-import {ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild} from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { debounce } from "../../shared/decorators/debounce";
-import { CurrencyService } from "../../shared/services/currency.service";
-import { LocalStorageService } from "angular-2-local-storage";
-import {Web3Service} from "../../shared/services/web3.service";
+import {ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { debounce } from '../../shared/decorators/debounce';
+import { CurrencyService } from '../../shared/services/currency.service';
+import { LocalStorageService } from 'angular-2-local-storage';
+import {Web3Service} from '../../shared/services/web3.service';
 import * as $ from 'jquery';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public secondUsd = [];
   public thirdUsd = [];
 
-  public refToDisplay = "";
+  public refToDisplay = '';
   private interval = null;
 
   public telegramPath;
@@ -89,15 +89,15 @@ export class HomeComponent implements OnInit, OnDestroy {
       _this.scroll.isThrottled = false;
     }, this.scroll.throttleDuration);
 
-    if(event.wheelDelta > 0) {
+    if (event.wheelDelta > 0) {
 
-      if(this.scroll.activeSection === 0) return false;
+      if (this.scroll.activeSection === 0) { return false; }
       this.upSection();
       console.log('WHEELED DOWN');
 
     } else {
 
-      if(this.scroll.activeSection >= this.scroll.sectionCount) return false;
+      if (this.scroll.activeSection >= this.scroll.sectionCount) { return false; }
       this.downSection();
       console.log('WHEELED UP');
 
@@ -112,10 +112,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onOverlayClick(video) {
-    if(video === 'concept') {
+    if (video === 'concept') {
       this.conceptOverlayVisible = false;
       this.conceptVideo.nativeElement.play();
-    } else if(video === 'rewards') {
+    } else if (video === 'rewards') {
       this.rewardsOverlayVisible = false;
       this.rewardsVideo.nativeElement.play();
     }
@@ -128,31 +128,31 @@ export class HomeComponent implements OnInit, OnDestroy {
     private localstorageService: LocalStorageService,
     private web3Service: Web3Service
   ) {
-    this.logoPath = "assets/images/LOGO-BLACK.png";
-    this.trianglesPath = "assets/images/TRIANGLES_HERO_IMAGE.png";
+    this.logoPath = 'assets/images/LOGO-BLACK.png';
+    this.trianglesPath = 'assets/images/TRIANGLES_HERO_IMAGE.png';
 
-    this.boostCrowd = "assets/images/BOOST_CROWD.png";
-    this.boostGame = "assets/images/BOOST_GAME.png";
-    this.boostRewards = "assets/images/BOOST_REWARDS.png";
-    this.mBoostRewards = "assets/images/BOOST_REWARDS_MOBILE.png";
+    this.boostCrowd = 'assets/images/BOOST_CROWD.png';
+    this.boostGame = 'assets/images/BOOST_GAME.png';
+    this.boostRewards = 'assets/images/BOOST_REWARDS.png';
+    this.mBoostRewards = 'assets/images/BOOST_REWARDS_MOBILE.png';
 
-    this.getReferred = "assets/images/GET_REFERRED.png";
-    this.getRewards = "assets/images/GET_REWARDS.png";
-    this.getSpots = "assets/images/GET_SPOTS.png";
+    this.getReferred = 'assets/images/GET_REFERRED.png';
+    this.getRewards = 'assets/images/GET_REWARDS.png';
+    this.getSpots = 'assets/images/GET_SPOTS.png';
 
-    this.boostPhases = "assets/images/BOOST_PHASES.png";
-    this.mBoostPhases = "assets/images/MOB_BOOST_PHASES.png";
-    this.mGetPhases = "assets/images/MOB_GET_PHASES.png";
+    this.boostPhases = 'assets/images/BOOST_PHASES.png';
+    this.mBoostPhases = 'assets/images/MOB_BOOST_PHASES.png';
+    this.mGetPhases = 'assets/images/MOB_GET_PHASES.png';
 
-    this.getPhases = "assets/images/GET_PHASES.png";
+    this.getPhases = 'assets/images/GET_PHASES.png';
 
-    this.telegramPath = "assets/images/Telegram.png";
+    this.telegramPath = 'assets/images/Telegram.png';
 
-    this.icon_language = "assets/images/icon/language.svg";
-    this.icon_location = "assets/images/icon/location.svg";
-    this.icon_facebook = "assets/images/icon/facebook.svg";
-    this.icon_twitter = "assets/images/icon/twitter.svg";
-    this.icon_telegram = "assets/images/icon/telegram.svg";
+    this.icon_language = 'assets/images/icon/language.svg';
+    this.icon_location = 'assets/images/icon/location.svg';
+    this.icon_facebook = 'assets/images/icon/facebook.svg';
+    this.icon_twitter = 'assets/images/icon/twitter.svg';
+    this.icon_telegram = 'assets/images/icon/telegram.svg';
 
     this.innerHeight = window.screen.height;
     this.innerWidth = window.screen.width;
@@ -161,11 +161,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.levelText = this.getLevelText(this.innerWidth);
 
-    const firstTime = this.localstorageService.get("firstTime");
+    const firstTime = this.localstorageService.get('firstTime');
 
     if (!firstTime) {
-      localstorageService.remove("hasSpot");
-      localstorageService.add("firstTime", {});
+      localstorageService.remove('hasSpot');
+      localstorageService.add('firstTime', {});
     }
 
   }
@@ -186,24 +186,24 @@ export class HomeComponent implements OnInit, OnDestroy {
         let exists = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
 
         if (exists['data'].exists) {
-          this.switchUrl = "/account";
-          this.switchText = "Account";
+          this.switchUrl = '/account';
+          this.switchText = 'Account';
         } else {
-          this.switchUrl = "/join";
-          this.switchText = "Join";
+          this.switchUrl = '/join';
+          this.switchText = 'Join';
         }
       });
 
     this.accountChangedSubscription = this.web3Service.onWeb3AccountChange.subscribe(async (changed) => {
-      if(changed) {
+      if (changed) {
         let exists = await this.web3Service.existsInMatrix(this.web3Service.coinbase);
 
         if (exists['data'].exists) {
-          this.switchUrl = "/account";
-          this.switchText = "Account";
+          this.switchUrl = '/account';
+          this.switchText = 'Account';
         } else {
-          this.switchUrl = "/join";
-          this.switchText = "Join";
+          this.switchUrl = '/join';
+          this.switchText = 'Join';
         }
       }
     });
@@ -241,12 +241,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   swipe(action) {
     console.log('swipe', action);
-    if ((action === this.SWIPE_ACTION.UP) && (this.scroll.activeSection != this.sections.length - 1) ){
+    if ((action === this.SWIPE_ACTION.UP) && (this.scroll.activeSection !== this.sections.length - 1) ) {
 
       this.downSection();
       console.log('ARROW DOWN');
 
-    } else if((action === this.SWIPE_ACTION.DOWN) && (this.scroll.activeSection != 0)){
+    } else if ((action === this.SWIPE_ACTION.DOWN) && (this.scroll.activeSection !== 0)) {
 
       this.upSection();
       console.log('ARROW UP');
@@ -256,12 +256,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   mobileSwipe(action) {
     console.log('swipe', action);
-    if ((action === this.SWIPE_ACTION.UP) && (this.mobileScroll.activeSection != this.mobileSections.length - 1) ){
+    if ((action === this.SWIPE_ACTION.UP) && (this.mobileScroll.activeSection !== this.mobileSections.length - 1) ) {
 
       this.downSectionForMobile();
       console.log('ARROW DOWN');
 
-    } else if((action === this.SWIPE_ACTION.DOWN) && (this.mobileScroll.activeSection != 0)){
+    } else if ((action === this.SWIPE_ACTION.DOWN) && (this.mobileScroll.activeSection !== 0)) {
 
       this.upSectionForMobile();
       console.log('ARROW UP');
@@ -269,7 +269,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  setSizes(){
+  setSizes() {
     for (let i = 0; i < this.sections.length; i++) {
 
       $(this.sections[i]).css({
@@ -282,7 +282,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log(this.sections);
   }
 
-  setSizesForMobile(){
+  setSizesForMobile() {
     for (let i = 0; i < this.mobileSections.length; i++) {
 
       $(this.mobileSections[i]).css({
@@ -295,27 +295,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log(this.sections);
   }
 
-  upSection(){
+  upSection() {
     let positionFromTop = $(this.sections[this.scroll.activeSection - 1]).position().top;
-    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    $('body, html').animate({ 'scrollTop': positionFromTop }, 300);
     --this.scroll.activeSection;
   }
 
   downSection() {
     let positionFromTop = $(this.sections[this.scroll.activeSection + 1]).position().top;
-    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    $('body, html').animate({ 'scrollTop': positionFromTop }, 300);
     ++this.scroll.activeSection;
   }
 
-  upSectionForMobile(){
+  upSectionForMobile() {
     let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection - 1]).position().top;
-    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    $('body, html').animate({ 'scrollTop': positionFromTop }, 300);
     --this.mobileScroll.activeSection;
   }
 
   downSectionForMobile() {
     let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection + 1]).position().top;
-    $("body, html").animate({ "scrollTop": positionFromTop }, 300);
+    $('body, html').animate({ 'scrollTop': positionFromTop }, 300);
     ++this.mobileScroll.activeSection;
   }
 
@@ -328,28 +328,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ref.detectChanges();
   }
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   @debounce()
   private onWindowResize(event) {
     const { innerWidth } = event.target;
-
     this.refToDisplay = this.getRefToDisplay(innerWidth);
     this.levelText = this.getLevelText(innerWidth);
   }
 
   private getLevelText(innerWidth) {
     if (innerWidth < 992) {
-      return "Lvl";
+      return 'Lvl';
     } else {
-      return "Level";
+      return 'Level';
     }
   }
 
   private getRefToDisplay(innerWidth: number): string {
     if (innerWidth < 768) {
-      return this.refToDisplay || "thirdRef";
+      return this.refToDisplay || 'thirdRef';
     } else {
-      return "";
+      return '';
     }
   }
 
