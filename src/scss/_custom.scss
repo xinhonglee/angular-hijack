@@ -1,0 +1,65 @@
+/************  Buttons   ************/
+
+.so-btn-outline {
+  font-size: $so_fs_caption;
+  font-weight: bold;
+  color: $so_cl_purple;
+  border: 2px solid $so_cl_purple;
+  padding: 6px 17px;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: $so_cl_purple;
+    color: $so_cl_white;
+  }
+}
+
+
+/************ Container *************/
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1152px;
+  }
+}
+
+.custom-container {
+  display: flex;
+  width: 1165px;
+  margin: 0 auto;
+}
+
+/***** Desktop and Mobile View *******/
+@media (min-width: 820px) {
+  .desktop-view {
+    display: block;
+  }
+  .mobile-view {
+    display: none;
+  }
+}
+@media (max-width: 819px) {
+  .desktop-view {
+    display: none;
+  }
+  .mobile-view {
+    display: block;
+  }
+}

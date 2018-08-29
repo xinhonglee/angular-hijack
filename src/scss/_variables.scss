@@ -1,4 +1,31 @@
-$bg_primary: #fff;
+/*
+so  SuperOne
+fs  FontSize
+cl  Color
+*/
 
-$purpleLight: #9c80ff;
-$purpleLighter: #6b00ff;
+/* Colors */
+
+$so_cl_purple-light:   #9c80ff;
+$so_cl_purple-lighter: #6b00ff;
+$so_cl_green-light:    #0ef7ae;
+$so_cl_purple:         #83009a;
+$so_cl_purple-dark:    #07002a;
+$so_cl_cyan-accent:    #00c1f3;
+$so_cl_pink-accent:    #291a2d;
+$so_cl_black:          #0a0011;
+$so_cl_white:          #ffffff;
+
+$so_bg_primary:        $so_cl_white;
+
+
+/* Font Size */
+$so_fs_header:     26pt;
+$so_fs_title:      26px;
+$so_fs_sub-title:  22px;
+$so_fs_text:       18px;
+$so_fs_caption:    14px;
+
+/* Block Size */
+$so_navbar_height:  64px;
+$so_section_gap:    64px;

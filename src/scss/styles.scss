@@ -7,18 +7,6 @@
 @import "../../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css";
 @import "../../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-regular.css";
 
-@import "~scss/old";
-
+@import "~scss/mixin";
 @import "~scss/common";
-
-@import "~scss/footer";
-@import "~scss/header";
-@import "~scss/account";
-
-/*section {*/
-
-/*padding-left: 15px;*/
-
-/*padding-right: 15px;*/
-
-/*}*/
+@import "~scss/custom";

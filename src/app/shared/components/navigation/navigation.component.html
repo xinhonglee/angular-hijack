@@ -1,22 +1,108 @@
-<nav class="container-fluid account-nav">
-  <div class="row justify-content-between">
-    <div class="nav-img">
-      <img [src]="logoPath">
+<nav class="navbar navbar-custom-1 fixed-top navbar-toggleable-sm bg-faded">
+  <div class="navbar-container">
+    <a class="navbar-brand" href="#">
+      <img class="logoImg" src={{logoPath}}/>
+    </a>
+    <div class="nav-header">
+      <a class="navbar-brand" href="#">
+        JOIN
+      </a>
+      <button class="navbar-toggler navbar-toggler-custom-1 navbar-toggler-right collapsed" type="button"
+              data-toggle="collapse" data-target="#collapsingNavbar2">
+        <span> </span>
+        <span> </span>
+        <span> </span>
+      </button>
     </div>
-
-    <ul class="account-ul">
-      <li>
-        <a routerLink='/'>Home</a>
-      </li>
-      <li>
-        <a routerLink="/account" routerLinkActive="active">Account</a>
-      </li>
-      <li>
-        <a routerLink="/">About</a>
-      </li>
-      <li>
-        <a routerLink="/">Help</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="collapsingNavbar2">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <div class="mega-menu p-3">
+            <div class="row mobile-view menu-divider">
+              <ul class="list-unstyled col-md-10 col-sm-10 mobile-divider" role="menu">
+                <div class="divider"></div>
+              </ul>
+            </div>
+            <div class="row section-1">
+              <ul class="list-unstyled col-md-1 col-sm-1 desktop-view" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-2 col-sm-1 desktop-view" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-3 col-sm-1 desktop-view" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-3 col-sm-1 desktop-view" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-2 col-sm-4 main-list col-12" role="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Join</a></li>
+              </ul>
+              <ul class="list-unstyled col-md-1 col-sm-4 desktop-view" role="menu">
+              </ul>
+            </div>
+            <div class="row">
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-10 col-sm-10" role="menu">
+                <div class="divider"></div>
+              </ul>
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+            </div>
+            <div class="row section-2">
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-2 col-sm-3" role="menu">
+                <img src={{icon_language}}/>&nbsp;<span>ENGLISH</span>
+              </ul>
+              <ul class="list-unstyled col-md-3 col-sm-3 menu-location" role="menu">
+                <img src={{icon_location}}/>&nbsp;<span>OSLO</span>
+              </ul>
+              <ul class="list-unstyled col-md-3 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-2 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+            </div>
+            <div class="row section-2-1 mobile-view">
+              <ul class="list-unstyled col-md-12 col-sm-12 col-12" role="menu">
+                <img src={{icon_language}}/>&nbsp;<span>ENGLISH</span>
+              </ul>
+            </div>
+            <div class="row mobile-view">
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-10 col-sm-10" role="menu">
+                <div class="divider"></div>
+              </ul>
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+            </div>
+            <div class="row section-2-2 mobile-view">
+              <ul class="list-unstyled col-md-12 col-sm-12 col-12" role="menu">
+                <img src={{icon_location}}/>&nbsp;<span>OSLO</span>
+              </ul>
+            </div>
+            <div class="row">
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+              <ul class="list-unstyled col-md-10 col-sm-10" role="menu">
+                <div class="divider"></div>
+              </ul>
+              <ul class="list-unstyled col-md-1 col-sm-1" role="menu">
+              </ul>
+            </div>
+            <div class="row section-3">
+              <ul class="list-unstyled col-md-12 col-sm-12 social-icons col-12" role="menu">
+                <img src={{icon_facebook}}/><img src={{icon_twitter}}/><img src={{icon_telegram}}/>
+              </ul>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>

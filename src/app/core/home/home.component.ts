@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounce } from '../../shared/decorators/debounce';
 import { LocalStorageService } from 'angular-2-local-storage';
@@ -11,29 +11,16 @@ import * as $ from 'jquery';
            })
 export class HomeComponent implements OnInit, OnDestroy {
 
-    SWIPE_ACTION = { UP: 'swipeup', DOWN: 'swipedown' };
-    DELAY_TIME = 300; // Scrolling Delay Time
+    SWIPE_ACTION      = { UP: 'swipeup', DOWN: 'swipedown' };
+    ANIMATE_DURATION  = 300; // Scrolling Delay Time
+    THROTTLE_DURATION = 1000;
 
-    public logoPath;
-    private sections = [];
+    private sections       = [];
     private mobileSections = [];
-    private scroll = null;
-    private mobileScroll = null;
-
-    public icon_language;
-    public icon_location;
-    public icon_facebook;
-    public icon_twitter;
-    public icon_telegram;
+    private scroll         = null;
+    private mobileScroll   = null;
 
     constructor(private httpClient: HttpClient, private ref: ChangeDetectorRef, private localstorageService: LocalStorageService) {
-        this.logoPath = 'assets/images/LOGO-BLACK.png';
-        this.icon_language = 'assets/images/icon/language.svg';
-        this.icon_location = 'assets/images/icon/location.svg';
-        this.icon_facebook = 'assets/images/icon/facebook.svg';
-        this.icon_twitter = 'assets/images/icon/twitter.svg';
-        this.icon_telegram = 'assets/images/icon/telegram.svg';
-
         const firstTime = this.localstorageService.get('firstTime');
 
         if (!firstTime) {
@@ -43,6 +30,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.initialSections();
+    }
+
+    ngOnDestroy() {
+        return;
+    }
+    initialSections() {
         window.scrollTo(0, 0);
 
         // for MouseWheel variables
@@ -51,7 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             activeSection: 0,
             sectionCount: this.sections.length - 1,
             isThrottled: false,
-            throttleDuration: 1000,
+            throttleDuration: this.THROTTLE_DURATION,
             target: $(this.sections[0]).position().top
         };
         this.mobileSections = $('.mobile-box').toArray();
@@ -59,15 +53,11 @@ export class HomeComponent implements OnInit, OnDestroy {
             activeSection: 0,
             sectionCount: this.sections.length - 1,
             isThrottled: false,
-            throttleDuration: 1000,
+            throttleDuration: this.THROTTLE_DURATION,
             target: $(this.sections[0]).position().top
         };
         this.setSizes();
         this.setSizesForMobile();
-    }
-
-    ngOnDestroy() {
-        return;
     }
 
     swipe(action) {
@@ -106,25 +96,25 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     upSection() {
         let positionFromTop = $(this.sections[this.scroll.activeSection - 1]).position().top;
-        $('body, html').animate({ 'scrollTop': positionFromTop }, this.DELAY_TIME);
+        $('body, html').animate({ 'scrollTop': positionFromTop }, this.ANIMATE_DURATION);
         --this.scroll.activeSection;
     }
 
     downSection() {
         let positionFromTop = $(this.sections[this.scroll.activeSection + 1]).position().top;
-        $('body, html').animate({ 'scrollTop': positionFromTop }, this.DELAY_TIME);
+        $('body, html').animate({ 'scrollTop': positionFromTop }, this.ANIMATE_DURATION);
         ++this.scroll.activeSection;
     }
 
     upSectionForMobile() {
         let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection - 1]).position().top;
-        $('body, html').animate({ 'scrollTop': positionFromTop }, this.DELAY_TIME);
+        $('body, html').animate({ 'scrollTop': positionFromTop }, this.ANIMATE_DURATION);
         --this.mobileScroll.activeSection;
     }
 
     downSectionForMobile() {
         let positionFromTop = $(this.mobileSections[this.mobileScroll.activeSection + 1]).position().top;
-        $('body, html').animate({ 'scrollTop': positionFromTop }, this.DELAY_TIME);
+        $('body, html').animate({ 'scrollTop': positionFromTop }, this.ANIMATE_DURATION);
         ++this.mobileScroll.activeSection;
     }
 
@@ -164,8 +154,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     @HostListener('window:resize', ['$event']) @debounce()
     private onWindowResize(event) {
-        this.setSizes();
-        this.setSizesForMobile();
+        this.initialSections();
     }
 
 }
