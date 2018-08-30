@@ -33,7 +33,7 @@ export class CurrencyService {
   spotsCounter(levels =0): number {
     let totalSpots:number = 0;
 
-    for(let i = 1; i <= levels; i++) {
+    for (let i = 1; i <= levels; i++) {
       totalSpots += Math.pow(3, i);
     }
 

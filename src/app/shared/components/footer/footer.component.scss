@@ -1,0 +1,25 @@
+@import "~scss/variables";
+
+
+.footer {
+  .box, .mobile-box {
+    background-color: $so_cl_green-light;
+  }
+
+  color: $so_cl_black;
+  .footer-right-top,
+  .footer-right-bottom,
+  .footer-left-bottom {
+    text-align: center;
+    font-size: $so_fs_caption;
+  }
+  .footer-left-content {
+    width: 100%;
+    text-align: center;
+  }
+  a {
+    color: $so_cl_black;
+  }
+}
+
+

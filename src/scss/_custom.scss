@@ -66,6 +66,25 @@
   padding-top: 101.5px;
   padding-bottom: 37.5px;
 }
+.box-content {
+  height: calc(100vh - #{$so_section_gap * 2} - #{$so_navbar_height});
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.box-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.box-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 
 /***** Desktop and Mobile View *******/
 @media (min-width: 820px) {
