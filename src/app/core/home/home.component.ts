@@ -5,20 +5,20 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import * as $ from 'jquery';
 
 @Component({
-               selector: 'app-home',
-               templateUrl: './home.component.html',
-               styleUrls: ['./home.component.scss']
-           })
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
+})
 export class HomeComponent implements OnInit, OnDestroy {
 
-    SWIPE_ACTION      = { UP: 'swipeup', DOWN: 'swipedown' };
-    ANIMATE_DURATION  = 300; // Scrolling Delay Time
+    SWIPE_ACTION = { UP: 'swipeup', DOWN: 'swipedown' };
+    ANIMATE_DURATION = 300; // Scrolling Delay Time
     THROTTLE_DURATION = 1000;
 
-    private sections       = [];
+    private sections = [];
     private mobileSections = [];
-    private scroll         = null;
-    private mobileScroll   = null;
+    private scroll = null;
+    private mobileScroll = null;
 
     constructor(private httpClient: HttpClient, private ref: ChangeDetectorRef, private localstorageService: LocalStorageService) {
         const firstTime = this.localstorageService.get('firstTime');
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         return;
     }
+
     initialSections() {
         window.scrollTo(0, 0);
 

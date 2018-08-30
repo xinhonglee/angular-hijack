@@ -46,6 +46,27 @@
   margin: 0 auto;
 }
 
+/*************** HiJack Box **********/
+.box {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-top:    $so_section_gap + $so_navbar_height;
+}
+.mobile-box {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 101.5px;
+  padding-bottom: 37.5px;
+}
+
 /***** Desktop and Mobile View *******/
 @media (min-width: 820px) {
   .desktop-view {

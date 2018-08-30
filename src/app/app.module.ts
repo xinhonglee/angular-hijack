@@ -19,26 +19,26 @@ export class MyHammerConfig extends HammerGestureConfig {
 }
 
 @NgModule({
-              declarations: [
-                  AppComponent
-              ],
-              imports: [
-                  BrowserModule,
-                  CoreModule,
-                  AppRoutingModule,
-                  NgxChartsModule,
-                  BrowserAnimationsModule,
-                  DeviceDetectorModule.forRoot(),
-                  LocalStorageModule.withConfig({
-                                                    prefix: 'matrix',
-                                                    storageType: 'localStorage'
-                                                }),
-              ],
-              providers: [{
-                  provide: HAMMER_GESTURE_CONFIG,
-                  useClass: MyHammerConfig
-              }],
-              bootstrap: [AppComponent]
-          })
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        CoreModule,
+        AppRoutingModule,
+        NgxChartsModule,
+        BrowserAnimationsModule,
+        DeviceDetectorModule.forRoot(),
+        LocalStorageModule.withConfig({
+            prefix: 'matrix',
+            storageType: 'localStorage'
+        }),
+    ],
+    providers: [{
+        provide: HAMMER_GESTURE_CONFIG,
+        useClass: MyHammerConfig
+    }],
+    bootstrap: [AppComponent]
+})
 export class AppModule {
 }
