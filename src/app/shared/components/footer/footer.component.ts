@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HiJack } from '../../hijack/hijack';
 
 @Component({
@@ -6,7 +6,7 @@ import { HiJack } from '../../hijack/hijack';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent extends HiJack implements OnInit {
+export class FooterComponent extends HiJack implements OnInit, OnDestroy {
 
     public logoPath;
     public icon_language;
@@ -27,5 +27,9 @@ export class FooterComponent extends HiJack implements OnInit {
 
     ngOnInit() {
         this.initialSections();
+    }
+
+    ngOnDestroy() {
+        this.removeHiJack();
     }
 }

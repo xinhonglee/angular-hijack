@@ -26,7 +26,7 @@ export class HomeComponent extends HiJack implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        return;
+        this.removeHiJack();
     }
 
 }

@@ -43,6 +43,12 @@ export class HiJack {
         this.setSizesForMobile();
     }
 
+    removeHiJack() {
+        if (window.hiJack != null ) {
+            window.hiJack = null;
+        }
+    }
+
     swipe(action) {
         console.log('swipe', action);
         if ((action === this.SWIPE_ACTION.UP) && (window.hiJack.scroll.activeSection !== this.sections.length - 1)) {
