@@ -1,7 +1,9 @@
 @import "~scss/variables";
 
-
 .footer {
+  .footer-logo {
+    width: 295px;
+  }
   .box, .mobile-box {
     background-color: $so_cl_green-light;
   }

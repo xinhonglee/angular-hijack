@@ -38,9 +38,9 @@ export class HiJack {
                     target: $(this.sections[0]).position().top
                 }
             };
+            this.setSizes();
+            this.setSizesForMobile();
         }
-        this.setSizes();
-        this.setSizesForMobile();
     }
 
     removeHiJack() {
@@ -146,6 +146,7 @@ export class HiJack {
 
     @HostListener('window:resize', ['$event']) @debounce()
     private onWindowResize(event) {
+        this.removeHiJack();
         this.initialSections();
     }
 }
